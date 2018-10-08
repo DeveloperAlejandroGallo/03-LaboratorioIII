@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #main {
+            width: 700px;
+            margin: auto; 
+            background-color: blue;
+            }
+        .simple {
+            width: 500px;
+            margin: 20px auto;
+            background-color: green;
+            }
+
+        .fancy {
+            width: 500px;
+            margin: 20px auto;
+            padding: 50px;
+            background-color: lawngreen;
+            
+            }
+/*
+        .simple {
+            width: 500px;
+            margin: 20px auto;
+            background-color: green;
+            -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+        }
+
+        .fancy {
+            width: 500px;
+            margin: 20px auto;
+            padding: 50px;
+            background-color: lawngreen;
+            border: solid blue 10px;
+            -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+            }
+
+*/
+/*
+    * {
+            -webkit-box-sizing: border-box;
+               -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+          }
+*/
+        .static {
+            position: static;
+            background-color: red;
+            color: white;
+        }
+        .relleno{
+            height: 400px;
+        }
+
+        .relative1 {
+            position: relative;
+            border: solid blue 5px;
+            }
+        .relative2 {
+            position: relative;
+            top: -10px;
+            left: 40px;
+            background-color: white;
+            border: solid red 5px;
+            width: 500px;
+            }
+        .fixed {
+            position: fixed;
+            bottom: 150px;
+            right: 250px;
+            width: 200px;
+            background-color: white;
+            border: solid green 5px;
+            }
+
+            .relativePadre {
+                position: relative;
+                width: 600px;
+                height: 400px;
+                border: solid blue 5px;
+                }
+            .absolute {
+                position: absolute;
+                top: 120px;
+                right: 0;
+                border: solid blue 5px;
+                width: 300px;
+                height: 200px;
+            }
+    </style>
+</head>
+<body>
+        <div class="fixed">
+            div anclado    
+            <button style="width: 100%"> texto</button>
+
+        </div>
+    <div id="main">
+        div de 600px
+    </div>
+    <div class="simple">
+        div chico... de 500px
+            
+    </div>
+    <div class="fancy">
+        div grande... de 500px
+        
+            
+    </div>
+
+    <div class="static">
+            static (estático) es el valor por defecto. Un elemento con position: static; no está posicionado en ninguna forma en específico. Se dice que un elemento static, está no posicionado y un elemento con valor establecido de position está posicionado.
+            
+    </div>
+<br>
+<br>
+    <div class="relative1">
+            relative (relativo) se comporta de la misma manera que static a menos que le agregues otras propiedades.
+            
+    </div>
+    <div class="relative2">
+         Establecer las propiedades top, right, bottom, y left de un elemento con position: relative; causará que su posición normal se reajuste. Otro contenido no se puede ajustar para adaptarse a cualquier hueco dejado por el elemento.
+            
+    </div>
+    <div class="static relleno" >
+          soy otro contendio estatico de relleno
+            
+    </div>
+
+    <div class="relativePadre">
+            Este elemento está usando position: relative;. Si estuviera usando position: static; su sucesor con position: asbsolute; escaparía y se posicionaría relativamente al body del documento.
+            
+            <div class="absolute">
+            Este elemento tiene position: asbsolute;. Se posiciona de manera relativa a su ancestro.
+            
+            </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+.numero
+{
+
+}
+
+fieldset
+{
+    background-color: #B6C0C3;
+    border: 0px none #1C6EA4;
+    border-radius: 5px 5px 5px 5px;
+    width: 30%;
+}
+
+h2
+{
+    background-color: #8BC393;
+}
+
+table
+{
+    width: 100%;
+}
+
+
+.sinError
+{
+    border-color: light-gray; 
+    border-width: 1px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.error
+{
+    border-color: red;
+    border-width: 1px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.hide
+{
+    visibility: hidden;
+}
+
+.show
+{
+    visibility: visible;
+}

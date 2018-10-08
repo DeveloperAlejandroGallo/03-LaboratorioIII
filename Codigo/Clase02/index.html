@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <script type="text/javascript" src="js.js">
+     
+     
+     
+     </script>
+     
+    <title>Clase 2</title>
+
+</head>
+<body>
+    <header>
+        <h1>Leccion 2 HTML 5</h1>
+        <nav> <!---->
+            <ul><!--unorder list-->
+                <li><a href="#">Menu 1</a></li> <!--List item-->
+                <li><a href="#">Menu 2</a></li> <!--List item-->
+            </ul>
+        </nav>
+        <section>
+            <article>
+                <h2>Titulo del Articulo</h2>
+                <p>Articulo bla bla bla</p>
+                <img src="" alt="">
+            </article>
+        </section>
+        <section>
+                <form action="www.google.com" method="post" target="_blank">  <!-- accion ingresamos la url del servidor.-->
+                    <label for="txtUsuario">Usuario:</label>
+                    <input type="text" name="usuario" id="txtUsuario" placeholder="Usuario" required>
+                    <br>
+                    <label for="txtPassword">Contraseña:</label>
+                    <input type="password" name="password" id="txtPassword" placeholder="Contraseña" required>    
+                    <br>
+                    <label for="">Preferencias:</label>
+                    <input type="checkbox" name="chktecno" id="chkTecno" value="tecnologia" checked>Tecnologia
+                    <input type="checkbox" name="chkCine" id="chkCine" value="Cine">Cine
+                    <br>
+                    <label for="">Sexo:</label>
+                    <input type="radio" name="rdbSexo" id="rdbSexoM" checked>Masculino 
+                    <input type="radio" name="rdbSexo" id="rdbSexoF" >Femenino
+                    <br>
+                    <label for="">Tipo Documento:</label>
+                    <select name="selTipoDoc" id="selTipoDoc"  size="1">
+                        <option value="dni">DNI</option>
+                        <option value="ci">CI</option>
+                        <option value="CUIT">CUIT</option>
+                        <option value="DU">DU</option>
+                        <option value="Pasaporte" selected>Pasaporte</option>
+                    </select>
+                    <br><br>
+                    <fieldset> <!--Para acumular comntroles-->
+                        <legend>Sumar Numeros</legend>
+                        <label for="txtNro1">Numero:</label>
+                        <input type="text" name="txtNro1" id="txtNro1" placeholder="">
+                        <br>
+                        <label for="txtNro2">Numero:</label>
+                        <input type="text" name="txtNro2" id="txtNro2">
+                    </fieldset>
+                    <br><br>
+                    <input type="button" value="Enviar Usuario" onclick="saludar()">
+                    <input type="submit" value="Enviar Form">
+                    <input type="reset" value="Resetear"> <!--Resetea todos los controles del Form -->
+                </form>            
+        </section>
+    </header>
+    <aside>
+            <label for="">Esto esta al costado</label>
+    </aside>
+
+</body>
+</html>

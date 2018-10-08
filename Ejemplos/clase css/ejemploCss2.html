@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            -webkit-box-sizing: border-box;
+               -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+          }
+        .container {
+            position: relative;
+            border: 5px solid lightblue;
+            /*width: 900px;*/
+            margin: auto;
+        }
+        nav {
+            position: absolute;
+            left: 0px;
+            width: 200px;
+            border: 5px solid brown;
+        }
+        section {
+            /* position is static by default */
+            margin-left: 200px;
+            border: 5px solid yellow;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 70px;
+            background-color: white;
+            width: 100%;
+            border: 5px solid brown;
+        }
+        body {
+            margin-bottom: 120px;
+        }
+
+        .img {
+            float: right;
+            margin: 0 0 10px 30px ;
+        }
+
+        .clearfix {
+            overflow: auto;
+            }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+                <ul>
+                    <li>Inicio</li>
+                    <li>Taco Menú</li>
+                    <li>Lista de Pendientes</li>
+                    <li>Horas</li>
+                    <li>Direcciones</li>
+                    <li>Contacto</li>
+                </ul>
+                </nav>
+                <section>
+                     El estilo margin-left para section, es para que haya espacio para nav.
+                
+                </section>
+                
+            
+                <section class="clearfixs">
+                        <img class="img" src="./img/img.jpg" />
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum,
+                <!--
+                nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.
+                -->
+                </section>
+                <section>
+                Mira lo que pasa si haces la ventana de tu navegador mas pequeña. ¡Funciona!
+                
+                </section>
+                <footer>
+                        Si usas un header o footer con valor fixed, asegurate de que haya espacio para él. Yo puse un margin-bottom en el body.
+                        
+                </footer>
+    </div>
+    
+</body>
+</html>

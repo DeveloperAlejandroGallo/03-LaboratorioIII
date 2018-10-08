@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript">
+        function mostrar() 
+        {
+            var usr = document.getElementById("txtUsuario").value;
+            var psw = document.getElementById("txtPassword").value;
+            alert(usr+ " " + psw);
+        }
+        function evento()
+        {
+            var txtPassword = document.getElementById("txtPassword");
+
+            alert("hola " + txtPassword.id);
+        }
+    </script>
+    <title>Login</title>
+</head>
+<body>
+    <form action="input" method="GET">
+        <label>Usuario</label><br>
+        <input type="text" name="txtUsuario" id="txtUsuario" maxlength="35" size="35" /><br>
+        <label>Contraseña</label><br>
+        <input type="password" name="txtPassword" id="txtPassword" maxlength="8" minlength="4"/><br>
+        <input type="button" name="btnIngresar" id="btnIngresar" value="Ingresar" onclick="mostrar()" /> 
+        <input type="checkbox" name="chkRecordar" id="chkRecordar" checked /> Recordar <br>
+        <label>Tipo de Documento</label><br>
+        <input type="radio" name="rdoTipo" value="DNI" checked/>DNI<br>
+        <input type="radio" name="rdoTipo" value="CUIT" />CUIT<br>
+        <!-- <input type="image" src="cena.gif" alt="Imagen No Allada"> -->
+        <br><br>
+        <input type="button" name="btnEvento" id="btnEvento" value="Evento" onclick="evento()" /> 
+        
+
+    </form>
+</body>
+</html>

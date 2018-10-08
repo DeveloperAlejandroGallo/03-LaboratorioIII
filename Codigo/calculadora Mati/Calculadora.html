@@ -1,0 +1,57 @@
+<!---Realizar una calculadora sin estilo, que sume 2 números y devuelva un resultado,
+al mismo tiempo, también debe poder almacenar un historial de números y resultados.
+FOTO EN EL CELULAR PARA VER LA EJECUCIÓN, USAR ALERTS PARA CONFIRMAR LA SUMA Y UNA TABLA
+PARA MOSTRAR EL HISTORIAL DE VALORES.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculadora</title>
+    <script src="./funciones.js">
+
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button onclick="showCalc()">Mostrar calculadora</button>
+    <div class="hide" id="divisor">
+        <h1>Calculadora</h1>
+        <br>
+        <br>
+        <fieldset>
+            <input type="number" class="numero sinError" name="numero1" id="num1">
+            +
+            <input type="number" class="numero sinError" name="numero2" id="num2">
+            <button type="button" id="btnSuma" name="botonSumar" onclick="Sumar()">Sumar</button>
+            <button type="button" id="btnSumGuar" name="botonSumarGuaradr" onclick="sumarGuardar()">Sumar y Guardar</button>
+            <br>
+            <br>
+            <label >Resultado: </label>
+            <input type="text" id="resultado" name="resultado">
+            <br>
+            <br>
+        </fieldset>
+    </div>
+    <div>
+            <table id="tabla">
+                <h2>Resultados</h2>
+                <thead>
+                    <th>
+                        Numero 1
+                    </th>
+                    <th>
+                        Numero 2
+                    </th>
+                    <th>
+                        Resultado
+                    </th>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+            </table>
+    </div>
+</body>
+</html>

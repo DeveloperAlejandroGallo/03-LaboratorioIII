@@ -1,0 +1,80 @@
+<!-- Hacer calculadora
+ponerle el mouse out a los campos
+Poner boton sumar y preguntarle el confirm de si quiere sumar
+
+Cuando suma cambiar el innerHtml de un descripcion diciendo q ya puede ver los resultados.
+
+Resultado - Read Only
+js:
+getElementByClassName
+getElementByTagName
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="Style.css"> <!--Para referenciar estilo-->
+    <script src="funciones.js"></script>
+
+    <title>Calculadora</title>
+</head>
+<body>
+        <input type="button" id="btnVer" value="Ocultar Calculadora" width="850px" onclick="verCalculadora()">
+        <div id="calculadora" style="visibility: visible" style="width: 25%">    
+            <table class="tableStructure">
+                <tr>
+                    <td>
+                        <input type="number" name="txtNro1" id="txtNro1" width="">    
+                    </td>
+                    <td>
+                        <select name="selOperacion" id="selOperacion">
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                            <option value="*">*</option>
+                            <option value="/">/</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="number" name="txtNro2" id="txtNro2">    
+                    </td>
+                    <td>
+                        <input type="text" name="txtResultado" id="txtResultado" >
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" >
+                        <input type="button" id="btnOperar" value="Operar" onclick="calcularYGuardar(false)">
+                    </td>
+                    <td colspan="2">
+                        <input type="button" id="btnOperaGuarda" value="Operar y Guardar" onclick="calcularYGuardar(true)"">
+                    </td>
+                </tr>
+            </table>    
+        </div>
+        <div>
+            <table  id="tblResultados"  class="tableStructure">
+                <thead>
+                    <th>
+                        Nro 1
+                    </th>
+                    <th>
+                            Oper
+                        </th>
+                    <th>
+                        Nro 2
+                    </th>
+                    <th>
+                        Resultado
+                    </th>
+                </thead>
+                <tbody id="tblbResultados">
+
+                </tbody>
+
+            </table>
+        </div>
+</body>
+</html>

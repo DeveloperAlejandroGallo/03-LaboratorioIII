@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CallBack</title>
+    <script>
+        //en js se pueden pasar funciones como parametros.
+        function sumar(a,b,callback)
+        {//el callbakc es una funcion de resultado
+            var c = a + b;
+            //return c; //frena la ejecucion
+            callback(c);
+        }
+
+        console.log(sumar(2,2,
+            function(resultado)
+            {
+                console.log(resultado);
+            }
+        
+        ));
+        alert("hola");
+        //Primero se crea la funcion y luego se ejecuta el sumar.
+        //Llamada asincrona - Ejecución en otro plano
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

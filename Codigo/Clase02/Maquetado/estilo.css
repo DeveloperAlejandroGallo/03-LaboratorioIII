@@ -1,0 +1,42 @@
+h1, h2
+{
+    color: aquamarine;
+}
+h1
+{
+    color: blueviolet;
+}
+.rojoNegrita
+{
+    color: red;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: small;
+    font-weight: bold;
+}
+.chocolate
+{
+    color: chocolate;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.boton
+{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center; 
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius:5px;
+
+}
+
+/* div p -> todos los p dentro de div (el espacio me da el hijo) */
+/* div>p -> busca los hijos directos */
+
+#parrafo /* con # es para ponerle un id y solo modifica a ese.*/
+{
+    color: #4CAF50;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        section {
+            border: 3px solid yellow;
+        }
+        .box {
+            float: left;
+            width: 200px;
+            height: 100px;
+            margin: 1em;
+            border: 3px solid green;
+            }
+            .after-box {
+                clear: left;
+            }
+    </style>
+</head>
+<body>
+    <div class="box">Div flotando</div>
+    <!--section>En este caso, el elemento section está después del div. Sin embargo, ya que el div está flotado a la izquierda, esto es lo que pasa: el texto en el elemento section flota alrededor del div y el elemento section rodea todo. ¿Qué pasaría si quisiéramos que section apareciera despues del elemento que está flotando?</section>-->
+    <section class="after-box">
+        Usando clear hemos movido esta sección hacia abajo del div que está flotando. Para despejar elementos que están flotando a la izquierda debes usar el valor left. También puedes despejar hacia la derecha usando right y hacia ambos lados usando both.
+        
+        </section>
+</body>
+</html>

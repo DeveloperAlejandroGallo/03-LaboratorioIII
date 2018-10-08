@@ -1,0 +1,55 @@
+<!-- 
+    ajax nos permite hacer peticiones asicronas, vamos a ejecutar algo y podemos seguir operando.
+    Nos permite refrescar pequeñas porciones de ntra pagina
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+    //Creamos una var q va a ser la encargada de realizar la conexion con el srv. La vamos a usar con varias func.
+    //va a hacer las peticiones por http
+    //XMLHttpRequest objeto encargado de hacer peticiones ajax a un servidor.
+    //Le configuramos la ip, parametros y q se hace con el pedido del srv
+        var xmlHTTP = new XMLHttpRequest();
+        //Configuar el callback - Que tiene q hacer cuando vuelve la info de srv
+        xmlHTTP.onreadystatechange = 
+            function()
+            {
+                console.log(xmlHTTP.readyState);
+                /*
+                readystate 
+                1 - conexion establecida
+                2 - server llego info
+                3 - el srv tiene la info disponible para enviarla pero todavia no la envio
+                4 - termino de procesar y tenemos respuesta
+                */
+               if(xmlHTTP.readyState == 4)
+               {//tenemos q evaluar si la respuesta es ok
+                    if(xmlHTTP.status == 200)//respuesta ok del srv
+                    {
+                        alert(xmlHTTP.responseText); 
+                        
+                    }
+                    else
+                        alert("Error (" + xmlHTTP.status + ") " + xmlHTTP.statusText);
+               }
+            };
+
+        xmlHTTP.open("GET","http://192.168.3.20:3000/login",false); //abrimos conexion del tipo get asincro
+        //enviamos la info
+        xmlHTTP.send(null);//van los parametro
+
+
+
+    </script>
+    <title>Pagina con Ajax</title>
+</head>
+<body>
+    
+</body>
+</html>

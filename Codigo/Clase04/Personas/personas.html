@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css"> <!--Para referenciar estilo-->
+    <script src="js.js"></script>
+    <title>Ejemplo Grilla con div flotante</title>
+</head>
+<body>
+    <button id="btnAgregar">Agregar</button> 
+    <div id="contAgregar" class="contenedor" hidden>
+        <button id="btnCerrar" class="btnCerrar" >X</button>
+        <br><br>
+        <label for="txtNombre">Nombre</label>
+        <br>
+        <input type="text" name="txtNombre" id="txtNombre" placeholder="Tu nombre...">
+        <br><br>
+        <label for="txtApellido">Apellido</label>
+        <br>
+        <input type="text" name="txtApellido" id="txtApellido" placeholder="Tu apellido...">
+        <br>
+        <button id="btnGuardar" class="btnGuardar">Guardar</button>
+    </div>
+    <div id="titulo" class="titulo" hidden>
+        <label>Agregar Personas</label>
+    </div>
+    <div id="grdPersonas">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>            
+            <tbody id="tbdPersonas">
+                
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

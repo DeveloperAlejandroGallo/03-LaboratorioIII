@@ -1,0 +1,27 @@
+.tableStructure
+{
+    background-color: bisque;
+    border-style: solid;
+    /* width: 50%; */
+    
+}
+table 
+{
+    font-family: arial, sans-serif;
+    /* border-collapse: collapse; */
+    width: 600px;
+}
+ 
+th, td 
+{
+    /* border: 1px solid #dddddd; */
+    text-align: center;
+    /* padding: 8px;
+    width: 20px; */
+} 
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+

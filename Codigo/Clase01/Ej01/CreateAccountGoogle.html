@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+        function cambiarColor()
+        {
+            var elemento = document.getElementById("txtNombre");
+            elemento.style.borderColor = "#ff0000";
+            elemento.value = "";
+        }
+    </script>
+    <title>Create Account</title>
+</head>
+<body>
+    <h1>Crear una cuneta de Google</h1>
+    <form action="input" method="GET">
+        <label>Nombre</label><br>
+        <input type="text" name="txtNombre" id="txtNombre" maxlength="35" size="35" value="Nombre" onmouseover="cambiarColor()"/><br>
+        <label>Contraseña</label><br>
+        <input type="password" name="txtPassword" id="txtPassword" maxlength="8" minlength="4"/><br>
+        <input type="button" name="btnIngresar" id="btnIngresar" value="Ingresar" onclick="mostrar()" /> 
+        <input type="checkbox" name="chkRecordar" id="chkRecordar" checked /> Recordar <br>
+        <label>Tipo de Documento</label><br>
+        <input type="radio" name="rdoTipo" value="DNI" checked/>DNI<br>
+        <input type="radio" name="rdoTipo" value="CUIT" />CUIT<br>    
+</body>
+</html>

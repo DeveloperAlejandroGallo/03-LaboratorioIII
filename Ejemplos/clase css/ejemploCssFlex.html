@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container {
+        display: -webkit-flex;
+        border: 3px solid green;
+        display: flex;
+        }
+        .initial {
+        -webkit-flex: initial;
+                flex: initial;
+                border: 3px solid yellow;
+        width: 200px;
+        min-width: 100px;
+        }
+        .none {
+        -webkit-flex: none;
+                flex: none;
+                border: 3px solid yellow;
+        width: 200px;
+        }
+        .flex1 {
+        -webkit-flex: 1;
+                flex: 1;
+                border: 3px solid yellow;
+        }
+        .flex2 {
+        -webkit-flex: 2;
+                flex: 2;
+                border: 3px solid yellow;
+        }
+        
+        
+        
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="initial">
+                Tendré 200px si hay espacio y me reduciré a 100px si no lo hay, pero nunca menos de eso.
+                
+                </div>
+                <div class="none">
+                Tendré siempre 200px, sin importar lo que pase.
+                
+                </div>
+                <div class="flex1">
+                Llenaré 1/3 del ancho que quede.
+                
+                </div>
+                <div class="flex2">
+                Llenaré 2/3 del ancho que quede.
+                
+                </div>
+    </div>
+    
+</body>
+</html>

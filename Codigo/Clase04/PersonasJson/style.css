@@ -1,0 +1,117 @@
+.contenedor
+{
+    width: 30%;
+    height: 50%;
+    bottom: 25%;
+    right: 25%;
+    position: fixed;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px; /* border hacia adentro */
+
+    animation-name: aparecer;
+    animation-duration: 2s;
+}
+
+th, td
+{
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: cadetblue;
+}
+
+table
+{
+    width: 100%;
+}
+
+thead
+{
+    background-color: teal;
+    color: aliceblue;
+}
+
+@keyframes aparecer
+{
+    from 
+    {
+        opacity: 0;
+    }
+    to
+    {
+        opacity: 1;
+    }
+}
+
+@keyframes cambiarColor
+{
+    from
+    {
+        background-color: whitesmoke;
+    }
+    to
+    {
+        background-color: cadetblue;
+    }
+}
+
+.titulo
+{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
+    color: cadetblue;
+    font-weight: bold;
+
+}
+
+.btnRojo
+{
+    background-color: red;
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+    
+}
+
+.btnVerde
+{
+    background-color: limegreen;
+    border-radius: 5px;
+    width: 20%;
+    height: 10%;
+}
+
+nav
+{
+    position:absolute;
+
+}
+
+*
+{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.img
+{
+    float: right;
+    margin: 0 0 10px 30px;
+}
+
+body
+{
+    margin-bottom: 120px;
+}
+
+.clearfixs
+{
+    overflow: hidden; 
+}
+.after-box
+{
+    clear: left;
+}
