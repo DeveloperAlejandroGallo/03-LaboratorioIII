@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script  src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="scripts/admin.js"></script>
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>Blog de Viajes</title>
+</head>
+
+<body>
+    <header>
+        <div class="contenedor">
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo Blog de Viajes">
+            </div>
+        </div>
+    </header>
+    <div class="navegacion">
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Nosotros</a>
+                    <ul>
+                        <li><a href="#">Misión</a></li>
+                        <li><a href="#">Visión</a></li>
+                        <li><a href="#">Valores</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Blog</a>
+                    <ul>
+                        <li><a href="#">Consejos</a></li>
+                        <li><a href="#">Ciudades</a></li>
+                        <li><a href="#">Promociones</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="#">Contacto</a></li>
+                
+            </ul>
+        </nav>
+
+    </div>
+
+    <div class="contenido contenedor">
+        <main>
+            
+            
+            <section id="sectionInput">
+                <label for="txtTitulo">Titulo</label>
+                <input type="text" name="titulo" id="txtTitulo" ><br>
+                <label for="txtArticulo">Articulo</label><br>
+                <textarea name="articulo" id="txtArticulo" rows="10" cols="100"></textarea><br>
+                <label for="txtMas">Mas</label><br>
+                <textarea name="mas" id="txtMas"></textarea><br>
+                <div>
+                        <img id="imgFoto" src="" alt="">
+                </div>
+                <div>
+                    <input type="button" class="btn btn-primary" id="btnGuardar" value="Guardar">
+                </div>
+            </section>
+            <section>
+                <table id="tblPosts">
+                    <caption>Mis Articulos</caption>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Fecha</th>
+                            <th>Titulo</th>
+                            <th>Articulo</th>
+                            <th>Modificar</th>
+                            <th>Borrar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </section>
+        </main>
+        <aside class="sidebar">
+            <h2>Otros posts</h2>
+            <ul>
+                <li><a href="#">Entrada1</a></li>
+                <li><a href="#">Entrada2</a></li>
+                <li><a href="#">Entrada3</a></li>
+                <li><a href="#">Entrada4</a></li>
+                <li><a href="#">Entrada5</a></li>
+            </ul>
+        </aside>
+
+    </div>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="divLogin" tabindex="-1">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Por favor, ingrese sus credenciales</h5>
+                  <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                  </button>
+            </div>
+                <div class="modal-body">
+                        <label title="Usuario" for="txtUsuario">Usuario</label>
+                        <input type="text" class="form-control" name="usuario" id="txtUsuario" ><br>
+                        <label for="txtPassword">Password</label><br>
+                        <input type="password" class="form-control" name="password" id="txtPassword"><br>
+                        
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                  <button type="button" id="btnLogIn" class="btn btn-primary">Log In</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+        </div>
+<div class="mimodal"><!-- Place at bottom of page --></div>
+
+    <footer>
+        <div class="contenedor">
+            <div class="nosotros">
+                <h2>Sobre Nosotros</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut tortor et ex viverra ullamcorper. Vivamus
+                    at lacinia quam. Aliquam a laoreet dui. In hac habitasse platea dictumst. Aliquam nec molestie magna.
+                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi tincidunt
+                    efficitur justo, at pulvinar arcu lobortis sit amet. Integer vel enim vitae urna dictum efficitur
+                </p>
+            </div>
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Nosotros</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Tienda</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <p class="derechos">
+            Todos los derechos reservados &copy;. Blog de viajes 2017
+        </p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+*{
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+/*
+body{
+    
+}*/
+
+h2{
+    color: rgb(219, 0, 141);
+	font-family: 'Open sans';
+
+}
+
+header{
+	width: 100%;
+}
+
+.logo{
+    margin: 30px 30px;
+}
+
+.navegacion{
+	/*width: 1000px;*/
+	margin: 30px auto;
+    background: rgb(219, 0, 141);
+    
+}
+
+.navegacion ul{
+	list-style: none;
+}
+
+.menu > li{
+    width: 170px;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    
+    
+}
+
+.menu > li > a{
+	display: block;
+	padding: 15px 20px;
+	color: #fff;
+	font-family: 'Open sans';
+    text-decoration: none;
+    
+}
+
+.menu li:hover{
+	background: rgb(0, 185, 229);
+	transition: all .3s;
+}
+
+/* Submenu*/
+
+.submenu{
+	position: absolute;
+	background: rgb(0, 185, 229);
+	width: 100%;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 1.5s;
+}
+
+.submenu li a{
+	display: block;
+	padding: 15px;
+	color: #fff;
+	font-family: 'Open sans';
+	text-decoration: none;
+}
+
+.menu li:hover .submenu{
+	visibility: visible;
+	opacity: 1;
+}
+.submenu li a:hover{
+    color: black;
+    
+}
+
+.contenido_contenedor{
+    margin: 50px;
+
+}
+/*
+.boton{
+    background: rgb(0, 185, 229);
+    font-family: 'Open sans';
+    text-decoration: none;
+    color: #fff;
+    width:100px;
+    height: 25px;
+    
+}*/
+
+.boton{
+    
+    font-family:'Open sans';
+    font-weight:bold;
+    color:white;
+    background:rgb(0, 185, 229);
+    border:1px;
+    
+    
+   }
+   
+   aside{
+	float: right;
+	margin: 0 1.5%;
+	
+  }
+  
+  article img  {
+	float: left;
+  }

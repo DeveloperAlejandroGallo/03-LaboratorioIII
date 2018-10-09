@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="scripts/admin.js"></script>
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>Blog de Viajes</title>
+</head>
+
+<body>
+    <header>
+        <div class="contenedor">
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo Blog de Viajes">
+            </div>
+        </div>
+    </header>
+    <div class="navegacion">
+        <nav><center>
+            <ul class="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Nosotros</a>
+                    <ul class="submenu">
+                        <li><a href="#">Misión</a></li>
+                        <li><a href="#">Visión</a></li>
+                        <li><a href="#">Valores</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Blog</a>
+                    <ul class="submenu">
+                        <li><a href="#">Consejos</a></li>
+                        <li><a href="#">Ciudades</a></li>
+                        <li><a href="#">Promociones</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="#">Contacto</a></li>
+                
+            </ul>
+        </center>
+        </nav>
+
+    </div>
+
+    <div class="contenido contenedor">
+        <main>
+            <aside class="sidebar">
+                <h2>Otros posts</h2><br>
+                <ul>
+                    <li><a href="#">Entrada1</a></li><br>
+                    <li><a href="#">Entrada2</a></li><br>
+                    <li><a href="#">Entrada3</a></li><br>
+                    <li><a href="#">Entrada4</a></li><br>
+                    <li><a href="#">Entrada5</a></li><br>
+                </ul>
+            </aside>
+            
+            <section id="sectionInput">
+                Titulo<br>
+                <input type="text"  id="titulo"  name= "titulo" class="input"><br><br>
+                Articulo<br>
+                <textarea name= "articulo" id="articulo" rows="15" cols="70" class="input"  > </textarea><br><br>
+                Mas<br>
+                <input type="text" id="mas" name="mas" class="input"  ><br><br>
+                <input type="button" id="btnBoton"name="guardar"  value="Guardar" class="boton" >
+                <br><br><br><br><br>
+                
+            </section>
+            <div id="contenido">
+
+            </div>
+            <section>
+                <table class="tabla" id="tblPosts">
+                    <caption>Mis Articulos</caption>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th></th>
+                            <th>Fecha</th>
+                            <th></th>
+                            <th>Titulo</th>
+                            <th></th>
+                            <th>Articulo</th>
+                            <th></th>
+                            <th>Modificar</th>
+                            <th></th>
+                            <th>Borrar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+               
+            </section>
+       
+        </main>
+       
+
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+
+
+
+    </div>
+    <footer>
+        <div class="contenedor">
+                <div class="navegacion2">
+                        <nav>
+                            <ul class="menu" >
+                                <li><a href="#">Inicio</a></li>
+                                <li><a href="#">Nosotros</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Tienda</a></li>
+                                <li><a href="#">Contacto</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+            <div class="nosotros">
+                <br><h2>Sobre Nosotros</h2><br>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut tortor et ex viverra ullamcorper. Vivamus
+                    at lacinia quam. Aliquam a laoreet dui. In hac habitasse platea dictumst. Aliquam nec molestie magna.
+                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi tincidunt
+                    efficitur justo, at pulvinar arcu lobortis sit amet. Integer vel enim vitae urna dictum efficitur
+                </p>
+            </div>
+            
+        </div>
+
+        <center> <p class="derechos">
+            Todos los derechos reservados &copy;. Blog de viajes 2017
+        </p></center>
+    
+        
+    </footer>
+
+</body>
+
+</html>

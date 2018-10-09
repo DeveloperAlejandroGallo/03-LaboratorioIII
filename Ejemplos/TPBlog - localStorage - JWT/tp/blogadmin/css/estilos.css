@@ -1,0 +1,236 @@
+*{
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body{
+	
+	
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+main{
+	width: 800px;
+	margin:0 auto;
+	margin-top: 30px;
+
+}
+
+
+
+footer{
+    background: rgb(219, 0, 141);
+	color: white;
+	font-size: 12px;
+	padding: 10px;
+	
+}
+
+
+
+header{
+	width: 100%;
+}
+
+.logo{
+    margin: 30px 100px;
+}
+
+.navegacion{
+	/*width: 800px;*/
+	margin:  auto;
+    background: rgb(219, 0, 141);
+    
+}
+
+.navegacion ul{
+	list-style: none;
+}
+
+.menu > li{
+    width: 15%; 
+    position: relative;
+    display: inline-block;
+	text-align: center;
+	
+    
+    
+}
+
+.menu > li > a{
+	display: block;
+	padding: 15px 20px;
+	color: #fff;
+	font-family: 'Open sans';
+    text-decoration: none;
+    
+}
+
+.menu li:hover{
+	background: rgb(0, 185, 229);
+	transition: all .3s;
+}
+
+/* Submenu*/
+
+.submenu{
+	position: absolute;
+	background: rgb(0, 185, 229);
+	width: 100%;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 1.5s;
+}
+
+.submenu li a{
+	display: block;
+	padding: 15px;
+	color: #fff;
+	font-family: 'Open sans';
+	text-decoration: none;
+}
+
+.menu li:hover .submenu{
+	visibility: visible;
+	opacity: 1;
+}
+.submenu li a:hover{
+    color: black;
+    
+}
+
+.contenido_contenedor{
+    margin: 50px;
+
+}
+
+   
+   aside{
+	float: right;
+	margin: 0 1.5%;
+	color: rgb(0, 185, 229);
+	
+  }
+
+  .sidebar ul{
+	list-style-type: none;
+	text-align: center;
+  }
+
+  .sidebar li a{
+	  text-decoration: none;
+	  color: rgb(0, 185, 229);
+  }
+
+  
+  article img  {
+	float: left;
+  }
+
+.navegacion2{
+	float: right;
+	margin-right: 100px;
+	
+}
+
+.navegacion2  li{
+	width: auto;
+}
+
+.nosotros{
+	width: 300px;
+	margin-top: 20px;
+	margin-left: 100px;
+	
+}
+
+.input{
+
+	width: 400px;
+	padding: 3px;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 15px;
+}
+
+.boton{
+    
+    color:white;
+    background:rgb(219, 0, 141);
+    border:1px;
+	width: 200px;
+	height: 40px;
+    
+}
+
+.boton:hover{
+	background:rgb(0, 185, 229);
+	cursor: pointer;
+
+}
+
+.boton1{
+    
+    color:white;
+    background:rgb(219, 0, 141);
+    border:1px;
+	width: 80px;
+	height: 50px;
+	text-align: center;
+    
+}
+.boton1:hover{
+	background:rgb(0, 185, 229);
+	cursor: pointer;
+
+}
+
+
+
+.tabla{
+
+	width: 800px;
+	border-collapse: collapse;
+	font-size: 15px;
+}
+
+
+.tabla thead{
+	
+	color: white;
+	/*height: 40px;*/
+	width: 800px;
+	background-color: rgb(219, 0, 141);
+}
+
+.tabla td{
+	
+	font-size: 15px;
+	text-align: center;
+	margin-top: 5px;
+	vertical-align: top;
+	width: 100px;
+}
+
+tbody{
+	width: 40%;
+}
+
+.tabla th{
+	
+	color: white;
+	height: 80px;
+	width: 100pxt;
+	background-color: rgb(219, 0, 141);
+}
+
+
+/*imagenes Index*/
+
+.foto{
+
+	float: left;
+	width: 40%;
+	text-align: right;
+}
