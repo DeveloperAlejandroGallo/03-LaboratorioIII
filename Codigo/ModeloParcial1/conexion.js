@@ -1,12 +1,12 @@
 //Primero armo la variable http
 var xmlHTTP = new XMLHttpRequest();
 var server = "http://localhost:3000/";
-
+var temasList = ["Deporte","Actualidad","Economia","Espectaculo","Politica"];
 
 
 window.onload = function ()
 {
-    opcionABML = "alta";
+    opcionABML = "obtener";
     ejecutarGet();
     cargarWindow();
 
@@ -33,11 +33,11 @@ function functionCallBack()
     {//tenemos q evaluar si la respuesta es ok
         if(xmlHTTP.status == 200)//respuesta ok del srv
         {
-            //alert(xmlHTTP.responseText); 
+           //alert(xmlHTTP.responseText); 
             switch (opcionABML)
             {
-                case "alta":
-                    altaConGet(xmlHTTP.responseText);
+                case "obtener":
+                    obtenerNoticiasGet(xmlHTTP.responseText);
                     break;
                 default:
                     break;
@@ -62,8 +62,24 @@ function functionCallBackPost()
     {//tenemos q evaluar si la respuesta es ok
         if(xmlHTTP.status == 200)//respuesta ok del srv
         {
+            addLoadingClass();
             //alert(JSON.parse(xmlHTTP.responseText)); 
-            operarConRespuestaPost(JSON.parse(xmlHTTP.responseText));
+            var data = JSON.parse(xmlHTTP.responseText);
+            switch (opcionABML)
+            {
+                case "alta":
+                    altaConRespuestaPost(data);
+                    break;
+                case "editar":
+                    editarConRespuestaPost(data);
+                    break;
+                case "eliminar":
+                    eliminarConRespuestaPost(data);
+                    break;
+                default:
+                    break;
+            }
+            
         }
         else
             alert("Error Servidor - Codigo: " + xmlHTTP.status);
@@ -75,6 +91,7 @@ function functionCallBackPost()
 
 function ejecutarPost(accion,callback,params)
 {
+    addLoadingClass();
     xmlHTTP.onreadystatechange = callback;
     
     xmlHTTP.open("POST",server+accion,true); //abrimos conexion del tipo get asincro

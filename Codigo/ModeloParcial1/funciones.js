@@ -20,7 +20,7 @@ function cargarWindow()
     // btnEditar.addEventListener("click",editar);
 }
 
-function altaConGet(datos)
+function obtenerNoticiasGet(datos)
 {
     noticiasDiv = $("noticias");
 
@@ -29,42 +29,61 @@ function altaConGet(datos)
     {
         news = altaNoticia(noticias[i].id,noticias[i].tema,noticias[i].titulo,noticias[i].noticia,noticias[i].fecha,)
         noticiasDiv.innerHTML += news;
-        $("btnEliminar_"+noticias[i].id).addEventListener("click",eliminar);
-        $("btnEditar_"+noticias[i].id).addEventListener("click",editar);
+        //$("btnEliminar_"+noticias[i].id).addEventListener("click",eliminar());
+        // $("btnEditar_"+noticias[i].id).addEventListener("click",editar);
     }
     
 }
 
 
-function operarConRespuestaPost(objeto)
+function altaConRespuestaPost(objeto)
 {
     var noticiasDiv = $("noticias");
     //alert("Operar con Respuesta Post " + objeto.id);
     news = altaNoticia(objeto.id,objeto.tema,objeto.titulo,objeto.noticia,objeto.fecha);
     noticiasDiv.innerHTML += news;
-    $("btnEliminar_"+objeto.id).addEventListener("click",eliminar(event));
-    $("btnEditar_"+objeto.id).addEventListener("click",editar);
+    // $("btnEliminar_"+objeto.id).addEventListener("click",eliminar(event));
+    // $("btnEditar_"+objeto.id).addEventListener("click",editar);
     
 }
 
 function altaNoticia(id,tema,titulo, noticia, fecha)
 {
     var lineaNoticia =  
-        '<div id=noticia_'+id+' class="noticia">'+
-        '<button id="btnEliminar_'+id+'" class="btn btnCerrar">X</button>'+
-        '<button id="btnEditar_'+id+'" class="btn btnEditar">E</button>';
+        '<div id="noticia_'+id+'" class="noticia">'+
+        '<button id="btnEliminar_'+id+'" class="btn btnCerrar" onclick="eliminar();">X</button>'+
+        '<button id="btnEditar_'+id+'" class="btn btnEditar" onclick="editar();">E</button>';
 
-    lineaNoticia += '<h2>'+titulo+'</h2><p>'+noticia+'</p></div>';
+    lineaNoticia += '<h2>'+titulo+'</h2><p class="tema">'+tema+'</p><p class="detalle">'+noticia+'</p></div>';
 
     return lineaNoticia;
+    // 
 }
 
 
-function eliminar(event)
+function eliminar()
 {
-    console.log("El Id es: " + event.target.getAttribute("id"));
+    opcionABML = "eliminar";
+    var objId = (event.target.id).split("_")[1];
+    paramsStr = {"id":id}; //formato json
+
+    ejecutarPost("eliminarNoticia",functionCallBackPost,JSON.stringify(paramsStr));
 
    // alert("eliminar");
+}
+
+
+function editar(event)
+{
+    opcionABML = "editar";
+    var id = (event.target.id).split("_")[1];
+    var titulo = $("txtTitulo").value;
+    var tema = $("selTemas").value;
+    var noticia = $("txtDescripcion").value;
+    paramsStr = {"id":id,"email":"algo@gmail.com","tema":tema,"titulo":titulo,"noticia":noticia}; //formato json
+    //alert(JSON.stringify(paramsStr));
+    ejecutarPost("editarNoticia",functionCallBackPost,JSON.stringify(paramsStr));
+    
 }
 
 
@@ -74,7 +93,6 @@ function abrir()
     var boxData = $("boxData");
 
     $("txtTitulo").value = "";
-    $("txtTema").value ="";
     $("txtDescripcion").value="";
 
     btnAgregar.hidden = true;
@@ -92,37 +110,24 @@ function cerrar()
 
 function guardar()
 {
-    addLoadingClass();
+    opcionABML = "alta";
+
     //alert("guardar");
-    var accion  = "nuevaNoticia";
     var titulo  = $("txtTitulo").value;
-    var tema    = $("txtTema").value;
+    var tema    = $("selTemas").value;
     var noticia = $("txtDescripcion").value;
     paramsStr = {"email":"algo@gmail.com","tema":tema,"titulo":titulo,"noticia":noticia}; //formato json
     //alert(JSON.stringify(paramsStr));
-    ejecutarPost(accion,functionCallBackPost,JSON.stringify(paramsStr));
+    ejecutarPost("nuevaNoticia",functionCallBackPost,JSON.stringify(paramsStr));
     
     btnAgregar.hidden = false;
     boxData.hidden = true;
 
-    addLoadingClass();
+    
 
 }
 
 
-function editar(event)
-{
-    
-    var accion = "editarNoticia";
-   // var id = $()
-    var titulo = $("txtTitulo").value;
-    var tema = $("txtTema").value;
-    var noticia = $("txtDescripcion").value;
-    paramsStr = {"id":id,"email":"algo@gmail.com","tema":tema,"titulo":titulo,"noticia":noticia}; //formato json
-    //alert(JSON.stringify(paramsStr));
-    ejecutarPost(accion,functionCallBackPost,JSON.stringify(paramsStr));
-    
-}
 
 
 

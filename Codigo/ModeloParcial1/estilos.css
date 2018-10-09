@@ -75,6 +75,9 @@
     
 }
 
+input[type=text]:focus {
+    background-color: lightblue;
+}
 
 .boxData
 {
@@ -142,3 +145,12 @@ div.fixed {
     font-family: fantasy;
     font-size:medium;
 }
+
+p.tema 
+{
+    font-style: italic;
+    color: #4e6096;
+    font-weight: bold;
+    font-size: 14px;
+}
+
