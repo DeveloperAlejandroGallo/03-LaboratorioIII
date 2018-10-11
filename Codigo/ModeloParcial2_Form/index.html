@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="estilos.css">
+    <script src="conexion.js"></script>
+    <script src="funciones.js"></script>
+    <title>Modelo Parcial</title>
+</head>
+<body>
+    <div class="principal" >
+        <button id="btnAgregar" class="btnAgregar">Agregar</button>
+        <h1>Últimas Noticias</h1>
+        <div id="noticias">
+        </div>
+        <div id="boxData"  hidden class="boxData">
+            <button id="btnCerrarData" class="btnChico btnCerrar">X</button>
+            <h2 id="encabezadoData">Noticia</h2>
+            <label for="txtTitulo">Titulo</label>
+            <br>
+            <input type="text" class="txtBox1linea" name="txtTitulo" id="txtTitulo" required>
+            <br>
+            <label for="selTemas">Tema</label>
+            <br>
+            <div id="ddlTemas"></div>
+            <br>
+            <label for="txtDescripcion">Descripcion</label>
+            <br>
+            <textarea class="txtBoxMultilinea" name="txtDescripcion" id="txtDescripcion" required></textarea>
+            <br><br>
+            <button id="btnGuardarData" class="btnAgregar btnGuardarData" ></button>
+        </div>
+        <div class="fixed">Las ultimas noticias</div>
+    </div>
+</body>
+</html>
+
+<!-- boton agrega
+ultimas noticias
+Noticias - editar y eliminiar - fecha
+Los datos viejan en formata json
+
+2 divs
+botones con float rigth
+
+
+para enviar post:
+{
+    "email":"mail",
+    "tema":"req.body.tema",
+    "titulo":req.body.titulo,
+    ""
+}
+
+poner ruedita de loading
+
+
+    <button onclick="av(event)"></button>
+-->

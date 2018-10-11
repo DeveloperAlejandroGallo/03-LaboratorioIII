@@ -1,0 +1,177 @@
+.noticia
+{
+    margin: 20px; 
+    border-radius: 5px;
+    background-color:rgb(202, 191, 191);
+    border-style: solid;
+    text-justify: auto;
+    padding: 20px;
+    word-wrap: break-word;
+}
+
+
+ .btnAgregar {
+	background-color:#7892c2;
+	border-radius:10px;
+	border:1px solid #4e6096;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	padding:12px 50px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+}
+.btnAgregar:hover {
+	background-color:#476e9e;
+}
+.btnAgregar:active {
+	position:relative;
+	top:1px;
+} 
+
+/* Boton chico */
+.btnChico
+{
+    /* position: relative; */
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+    margin:10px;
+    float: right;
+}
+
+.btnEditar
+{
+    background-color: limegreen;
+
+}
+
+.btnCerrar
+{
+    background-color: red;
+    
+}
+
+.btnGuardarData
+{
+    background-color: green;
+    color: whitesmoke;
+}
+
+.btnGuardarData:hover
+{
+    background-color:#479e68;
+}
+.txtBox1linea
+{
+    width: 90%;
+}
+
+.txtBoxMultilinea
+{
+    width: 90%;
+    height: 30%;
+    
+}
+
+input[type=text]:focus {
+    background-color: lightblue;
+}
+
+.boxData
+{
+    font-family:'Times New Roman', Times, serif;
+
+    width: 50%;
+    height:60%;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color:rgb(94, 199, 138);
+    position: fixed;
+    /* border hacia adentro */
+    padding: 20px; 
+    
+    top: 25%;
+    right: 25%;
+    left: 25%;
+    bottom: 25%;
+    
+    
+  
+   animation-name: aparecer;
+    animation-duration: 2s; 
+}
+
+@keyframes aparecer
+{
+    from 
+    {
+        opacity: 0;
+    }
+    to
+    {
+        opacity: 1;
+    }
+}
+
+.loading
+{
+    position: relative;
+}
+
+
+.loading::after
+{
+    content: url(LoadingHipnosis.gif);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: lightgrey;
+    height: 100%;
+    width: 100%;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    opacity: 0.75;
+}
+
+
+div.fixed{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    border: 1px solid steelblue;
+    text-align: center;
+    color: tomato;
+    font: bold;
+    font-family: fantasy;
+    font-size:medium;
+}
+
+p.tema 
+{
+    font-style: italic;
+    color: #4e6096;
+    font-weight: bold;
+    font-size: 24px;
+    
+}
+
+p.fecha
+{
+    text-align: right;
+    color:#283966;
+}
+
+h2
+{
+    color: #283966;
+}
+
+h1
+{
+    color: teal;
+    
+}

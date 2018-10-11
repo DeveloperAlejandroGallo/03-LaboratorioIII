@@ -1,0 +1,42 @@
+<button onclick="addLoaderClass()">Add Loading Animation</button>
+<div class="container">
+  <div>Lorem ipsum dolor sit amet consectetur adipisicing elit.        
+      Laboriosam excepturi quis dignissimos ab quisquam ducimus eos quo error odio doloremque. 
+      Assumenda, facilis eligendi ut saepe optio rerum vitae cupiditate quam.
+    </div>
+</div>
+<style>
+.container {
+  height: 400px;
+  background-color: lightblue;
+  width: 500px;
+}
+
+.loader {
+  position: relative;
+}
+.loader::after {
+  content: url(ProcessingDragon.gif);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: rgba(0,0,0,.7);
+  color: white;
+  height: 10%;
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
+<script>
+function addLoaderClass() 
+{
+  const container = document.getElementsByClassName('container')[0];
+  if(container.classList.contains('loader')) {
+    container.classList.remove('loader');
+  } else {
+    container.classList.add('loader');
+  }
+}
+</script>
