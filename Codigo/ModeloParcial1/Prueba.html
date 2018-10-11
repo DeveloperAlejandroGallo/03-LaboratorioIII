@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="estilos.css">
+    <script>
+        function $(id)
+        {
+            return document.getElementById(id);
+        }
+        function p()
+        {
+            f = new Date;
+            $("pDetalle").innerHTML = "Hola que tal";            
+           $("pHora").innerHTML = f.getHours()+":"+f.getMinutes()+":"+f.getSeconds();
+           $("btnCerrar").innerHTML = "CO";
+        }
+    </script>
     <title>Document</title>
 </head>
 <body>
@@ -14,9 +27,13 @@
             <button id="btnAgragar"></button>
         </div>
         <div class="noticia">
-            <button class="btn btnCerrar">X</button><button class="btn btnEditar">E</button>            
-            <h2>Titulo AS{AJDÑLKDSAJFFÑDSALKJFÑSALDKJFÑSAKDLJFÑLSAKJFÑLSADKJFÑSALKDJFÑLSAKDJFÑLSAKJDFÑLKSAJDÑFLKJSADÑFLKJDSAÑLFKJSADÑLFKJA</h2>
-            <p>algo para poner por acasdñlsakdhfñlkdsajfñlksajd fñlkjdsfñljdsafñlkjdsañfljdsafñ</p>
+            <button id="btnCerrar" class="btn btnCerrar">X</button>
+            <button class="btn btnEditar" onclick="p();">E</button>            
+            <h2 id="h2Titulo">Titulo AS{AJDÑLKDSAJFFÑDSALKJFÑSALDKJFÑSAKDLJFÑLSAKJFÑLSADKJFÑSALKDJFÑLSAKDJFÑLSAKJDFÑLKSAJDÑFLKJSADÑFLKJDSAÑLFKJSADÑLFKJA</h2>
+            <p class="detalle" id="pDetalle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, 
+                quae facere hic vel quisquam amet voluptatem! Minima aperiam repellat tempora voluptates. Aperiam, numquam? 
+                Et laborum quaerat obcaecati tenetur, recusandae qui!</p>
+            <p id="pHora" class="hora">12:12:11</p>
         </div>
 
     </div>

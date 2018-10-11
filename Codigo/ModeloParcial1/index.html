@@ -17,26 +17,21 @@
         <div id="noticias">
         </div>
         <div id="boxData"  hidden class="boxData">
-            <button id="btnCerrarData" class="btn btnCerrar">X</button>
-            <h2>Noticia</h2>
+            <button id="btnCerrarData" class="btnChico btnCerrar">X</button>
+            <h2 id="encabezadoData">Noticia</h2>
             <label for="txtTitulo">Titulo</label>
             <br>
-            <input type="text" class="txtBox1linea" name="txtTitulo" id="txtTitulo">
+            <input type="text" class="txtBox1linea" name="txtTitulo" id="txtTitulo" required>
             <br>
             <label for="selTemas">Tema</label>
             <br>
-            <select name="selTemas" id="selTemas">
-                <option value="Deporte" selected="selected">Deporte</option>
-                <option value="Actualidad">Actualidad</option>
-                <option value="Espectaculo">Espectaculo</option>
-                <option value="Politica">Politica</option>
-            </select>
+            <div id="ddlTemas"></div>
             <br>
             <label for="txtDescripcion">Descripcion</label>
             <br>
-            <textarea class="txtBoxMultilinea" name="txtDescripcion" id="txtDescripcion"></textarea>
+            <textarea class="txtBoxMultilinea" name="txtDescripcion" id="txtDescripcion" required></textarea>
             <br><br>
-            <button id="btnGuardarData" class="btnGuardarData">Guardar</button>
+            <button id="btnGuardarData" class="btnAgregar btnGuardarData" ></button>
         </div>
         <div class="fixed">Las ultimas noticias</div>
     </div>

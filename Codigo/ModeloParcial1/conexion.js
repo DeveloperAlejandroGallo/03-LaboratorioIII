@@ -1,7 +1,7 @@
 //Primero armo la variable http
 var xmlHTTP = new XMLHttpRequest();
 var server = "http://localhost:3000/";
-var temasList = ["Deporte","Actualidad","Economia","Espectaculo","Politica"];
+var respuestaServidor;
 
 
 window.onload = function ()
@@ -33,7 +33,6 @@ function functionCallBack()
     {//tenemos q evaluar si la respuesta es ok
         if(xmlHTTP.status == 200)//respuesta ok del srv
         {
-           //alert(xmlHTTP.responseText); 
             switch (opcionABML)
             {
                 case "obtener":
@@ -63,22 +62,12 @@ function functionCallBackPost()
         if(xmlHTTP.status == 200)//respuesta ok del srv
         {
             addLoadingClass();
+            console.log("Response: " + xmlHTTP.responseText);
             //alert(JSON.parse(xmlHTTP.responseText)); 
             var data = JSON.parse(xmlHTTP.responseText);
-            switch (opcionABML)
-            {
-                case "alta":
-                    altaConRespuestaPost(data);
-                    break;
-                case "editar":
-                    editarConRespuestaPost(data);
-                    break;
-                case "eliminar":
-                    eliminarConRespuestaPost(data);
-                    break;
-                default:
-                    break;
-            }
+            operarConRespuestaSrv(data);
+
+
             
         }
         else

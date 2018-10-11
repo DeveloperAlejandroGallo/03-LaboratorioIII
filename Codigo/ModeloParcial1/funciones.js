@@ -1,7 +1,9 @@
 //variables globales
 var noticiasList=[];
 var opcionABML;
-
+var paramsStr;
+var idActual;
+var temasList = ["Deporte","Actualidad","Economia","Espectaculo","Politica"];
 //Obtener un objeto de la pag.
 function $(id)
 {
@@ -11,89 +13,225 @@ function $(id)
 function cargarWindow()
 {
     var btnAgregar = $("btnAgregar");
-    btnAgregar.addEventListener("click",abrir); //variable de tipo funcion abrir
+    btnAgregar.addEventListener("click",abrirCargar); //variable de tipo funcion abrir
     var btnCerrar = $("btnCerrarData");
     btnCerrar.addEventListener("click",cerrar);
-    var btnGuardar = $("btnGuardarData");
-    btnGuardar.addEventListener("click",guardar);
     // var btnEditar = $("btnEditarData");
     // btnEditar.addEventListener("click",editar);
 }
 
+function operarConRespuestaSrv(data)
+{
+    // alert("data.type: "+data.type+ "- opcionABML: "+opcionABML);
+    if(data.type != "error")
+    {
+        switch (opcionABML)
+        {
+            case "alta":
+                altaConRespuestaPost(data);
+                break;
+            case "editar":
+                editarConRespuestaPost();
+                break;
+            case "eliminar":
+                eliminarConRespuestaPost();
+                break;
+            default:
+                break;
+        }
+    }
+    else
+        alert("ERROR!");
+}
+
+
+
 function obtenerNoticiasGet(datos)
 {
-    noticiasDiv = $("noticias");
+    noticiasList = JSON.parse(datos); //string pasado a json - es un array de json
 
-    var noticias = JSON.parse(datos); //string pasado a json - es un array de json
-    for(var i=0; i<noticias.length;i++)
-    {
-        news = altaNoticia(noticias[i].id,noticias[i].tema,noticias[i].titulo,noticias[i].noticia,noticias[i].fecha,)
-        noticiasDiv.innerHTML += news;
-        //$("btnEliminar_"+noticias[i].id).addEventListener("click",eliminar());
-        // $("btnEditar_"+noticias[i].id).addEventListener("click",editar);
-    }
-    
+    listar();
 }
 
 
-function altaConRespuestaPost(objeto)
+function listar()
 {
-    var noticiasDiv = $("noticias");
-    //alert("Operar con Respuesta Post " + objeto.id);
-    news = altaNoticia(objeto.id,objeto.tema,objeto.titulo,objeto.noticia,objeto.fecha);
-    noticiasDiv.innerHTML += news;
-    // $("btnEliminar_"+objeto.id).addEventListener("click",eliminar(event));
-    // $("btnEditar_"+objeto.id).addEventListener("click",editar);
-    
+    noticiasDiv = $("noticias");
+    noticiasDiv.innerHTML = "";
+
+    //alert("Lista contiene " + noticiasList.length + " registros.");
+
+    for(var i=0; i<noticiasList.length;i++)
+    {
+        news = armarNoticia(noticiasList[i].id,noticiasList[i].tema,noticiasList[i].titulo,noticiasList[i].noticia,noticiasList[i].fecha)
+        noticiasDiv.innerHTML += news;
+    }
 }
 
-function altaNoticia(id,tema,titulo, noticia, fecha)
+
+
+function armarDropDown(div,nameId, list)
+{
+    var select ="";
+    select += 
+    '<select name="'+nameId+'" id="'+nameId+'">'+
+    '<option value="'+list[0]+'" selected="selected">'+list[0]+'</option>';
+    for(var i=1; i<list.length;i++)
+    {
+        select += '<option value="'+list[i]+'">'+list[i]+'</option>';
+    }
+    select += '</select>'
+    console.log(select);
+    $(div).innerHTML = select;
+}
+
+
+
+
+function altaConRespuestaPost(noticia)
+{
+    noticiasDiv = $("noticias");
+    
+    noticiasList.push(noticia);
+
+    listar();
+
+}
+
+function armarNoticia(id,tema,titulo, noticia, fecha)
 {
     var lineaNoticia =  
         '<div id="noticia_'+id+'" class="noticia">'+
-        '<button id="btnEliminar_'+id+'" class="btn btnCerrar" onclick="eliminar();">X</button>'+
-        '<button id="btnEditar_'+id+'" class="btn btnEditar" onclick="editar();">E</button>';
+        '<button id="btnEliminar_'+id+'" class="btnChico btnCerrar" onclick="eliminarClick();">X</button>'+
+        '<button id="btnEditar_'+id+'" class="btnChico btnEditar" onclick="editarClick();">E</button>';
 
-    lineaNoticia += '<h2>'+titulo+'</h2><p class="tema">'+tema+'</p><p class="detalle">'+noticia+'</p></div>';
+    lineaNoticia += 
+        '<h2>'+titulo+'</h2>' +
+        '<p id="pTema_'+id+'" class="tema">'+tema+'</p>'+
+        '<p id="pDetalle_'+id+'" class="detalle">'+noticia+'</p>'+
+        '<p id="pFecha_'+id+'" class="fecha">'+fecha+'</p></div>';
 
     return lineaNoticia;
     // 
 }
 
 
-function eliminar()
+function eliminarClick()
 {
-    opcionABML = "eliminar";
-    var objId = (event.target.id).split("_")[1];
-    paramsStr = {"id":id}; //formato json
+    if(confirm("¿Desea eliminar la noticia?"))
+    {
+        opcionABML = "eliminar";
+        idActual = (event.target.id).split("_")[1];
+        paramsStr = {"id":idActual}; //formato json
 
-    ejecutarPost("eliminarNoticia",functionCallBackPost,JSON.stringify(paramsStr));
-
-   // alert("eliminar");
+        ejecutarPost("eliminarNoticia",functionCallBackPost,JSON.stringify(paramsStr));
+    }
 }
 
+function eliminarConRespuestaPost()
+{
 
-function editar(event)
+    for(i=0; i < noticiasList.length; i++)
+    {
+
+        if(noticiasList[i].id == idActual)
+        {
+            noticiasList.splice(i,1);
+
+            break;
+        }
+    }
+    listar();
+}
+
+function editarClick()
+{
+    
+    idActual = (event.target.id).split("_")[1];
+
+    pos = getIndiceId(idActual,noticiasList);
+    abrirCargar("E");
+
+    $("txtTitulo").value = noticiasList[pos].titulo;
+    $("txtDescripcion").value = noticiasList[pos].noticia;
+    $("selTemas").value = noticiasList[pos].tema;
+    
+
+}
+
+function editarConRespuestaPost()
+{
+
+    for(var i=0; i < noticiasList.length; i++)
+    {
+        console.log("noticiasList[i].id: "+ noticiasList[i].id +"- idActual: "+idActual);
+
+        if(noticiasList[i].id == idActual)
+        {
+            noticiasList[i].tema =    $("selTemas").value;
+            noticiasList[i].titulo =  $("txtTitulo").value;
+            noticiasList[i].noticia = $("txtDescripcion").value;
+
+            listar();
+            break;
+        }
+    }
+}
+
+function modificarClick()
 {
     opcionABML = "editar";
-    var id = (event.target.id).split("_")[1];
-    var titulo = $("txtTitulo").value;
-    var tema = $("selTemas").value;
+
+    //alert("guardar");
+    var titulo  = $("txtTitulo").value;
+    var tema    = $("selTemas").value;
     var noticia = $("txtDescripcion").value;
-    paramsStr = {"id":id,"email":"algo@gmail.com","tema":tema,"titulo":titulo,"noticia":noticia}; //formato json
+    paramsStr = {"id":idActual,"email":"algo@gmail.com","tema":tema,"titulo":titulo,"noticia":noticia}; //formato json
     //alert(JSON.stringify(paramsStr));
     ejecutarPost("editarNoticia",functionCallBackPost,JSON.stringify(paramsStr));
     
+    btnAgregar.hidden = false;
+    boxData.hidden = true; 
 }
 
-
-function abrir()
+function getIndiceId(id,lista)
 {
+    for(var i=0; i<lista.length;i++)
+    {
+       if(lista[i].id == id){
+           return i;
+       }
+    }
+
+    return -1;
+}
+
+function abrirCargar(tipo)
+{
+    var btnGuardar = $("btnGuardarData");
+    var encabezado = $("encabezadoData");
+    armarDropDown("ddlTemas","selTemas",temasList);
+    if(tipo == "E")//Edit
+    {
+        btnGuardar.removeEventListener("click",guardarClick);
+        btnGuardar.addEventListener("click",modificarClick);
+        btnGuardar.innerHTML = "Modificar";
+        encabezado.innerHTML = "Modificar Noticia";
+    }
+    else //C - create
+    {
+        btnGuardar.removeEventListener("click",modificarClick);
+        btnGuardar.addEventListener("click",guardarClick);
+        btnGuardar.innerHTML = "Guardar";
+        $("txtTitulo").value = "";
+        $("txtDescripcion").value="";
+        encabezado.innerHTML = "Nueva Noticia";
+    }
+
     var btnAgregar = $("btnAgregar");
     var boxData = $("boxData");
 
-    $("txtTitulo").value = "";
-    $("txtDescripcion").value="";
+
 
     btnAgregar.hidden = true;
     boxData.hidden = false;
@@ -108,7 +246,7 @@ function cerrar()
     boxData.hidden = true;
 }
 
-function guardar()
+function guardarClick()
 {
     opcionABML = "alta";
 
@@ -123,18 +261,14 @@ function guardar()
     btnAgregar.hidden = false;
     boxData.hidden = true;
 
-    
-
 }
-
-
 
 
 
 function addLoadingClass() 
 {
   const container = document.getElementsByClassName("principal")[0];
-
+  
   if(container.classList.contains("loading")) 
     container.classList.remove("loading");
   else 
@@ -143,16 +277,8 @@ function addLoadingClass()
 }
 
 
-function objToDiv(objecto)
-{
-
-}
 
 
-function av(e)
-{
-    console.log(e.target);
-}
 
 /*obtener por get una lista de elementos por get y recibir un json.
  ABM

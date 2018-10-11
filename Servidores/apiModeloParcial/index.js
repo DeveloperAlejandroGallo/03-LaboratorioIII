@@ -42,15 +42,7 @@ app.get("/loginUsuario",function(req,res){
     res.send("Debe ingresar Usuario y Contraseña");
     
 });
-app.get("/noticias",function(req,res){
-   
- res.send(noticias);    
 
-        return;
-   
-   
-    
-});
 
 app.post("/loginUsuario",function(req,res){
     setTimeout(function(){
@@ -90,6 +82,16 @@ app.post("/login",function(req,res){
     },2000);
     
 });
+
+app.get("/noticias",function(req,res){
+   
+    res.send(noticias);    
+   
+           return;
+      
+      
+       
+   });
 
 app.post("/nuevaNoticia",function(req,res){
     setTimeout(function(){
