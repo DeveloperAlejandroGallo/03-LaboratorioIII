@@ -6,7 +6,7 @@ var respuestaServidor;
 
 window.onload = function ()
 {
-    opcionABML = "obtener";
+    opcionABML = "noticias";
     llamarServidor("GET","noticias",functionCallBack,null);
     cargarWindow();
 

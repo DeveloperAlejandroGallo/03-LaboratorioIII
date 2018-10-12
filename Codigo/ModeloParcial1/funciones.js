@@ -114,7 +114,7 @@ function armarNoticia(id,tema,titulo, noticia, fecha)
         '<p id="pFecha_'+id+'" class="fecha">'+fecha+'</p></div>';
 
     return lineaNoticia;
-    // 
+    
 }
 
 
@@ -230,6 +230,9 @@ function abrirCargar(tipo)
         encabezado.innerHTML = "Nueva Noticia";
     }
 
+    var textbox = $("txtTitulo");
+    textbox.autofocus = true;
+    
     var btnAgregar = $("btnAgregar");
     var boxData = $("boxData");
 
