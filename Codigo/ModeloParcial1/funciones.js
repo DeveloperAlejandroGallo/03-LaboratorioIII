@@ -67,10 +67,32 @@ function listar()
     {
         news = armarNoticia(noticiasList[i].id,noticiasList[i].tema,noticiasList[i].titulo,noticiasList[i].noticia,noticiasList[i].fecha)
         noticiasDiv.innerHTML += news;
+        // $("btnEliminar_"+noticiasList[i].id).addEventListener("click",eliminarClick);
+        // $("btnEditar_"+noticiasList[i].id).addEventListener("click",editarClick);
     }
 }
 
+function armarNoticia(id,tema,titulo, noticia, fecha)
+{
+    var lineaNoticia =  
+        '<div id="noticia_'+id+'" class="noticia">'+
+        '<button id="btnEliminar_'+id+'" class="btnChico btnCerrar" onclick="eliminarClick();">X</button>'+
+        '<button id="btnEditar_'+id+'" class="btnChico btnEditar" onclick="editarClick();">E</button>';
 
+    // var lineaNoticia =  
+    //     '<div id="noticia_'+id+'" class="noticia">'+
+    //     '<button id="btnEliminar_'+id+'" class="btnChico btnCerrar">X</button>'+
+    //     '<button id="btnEditar_'+id+'" class="btnChico btnEditar">E</button>';
+
+    lineaNoticia += 
+        '<h2>'+titulo+'</h2>' +
+        '<p id="pTema_'+id+'" class="tema">'+tema+'</p>'+
+        '<p id="pDetalle_'+id+'" class="detalle">'+noticia+'</p>'+
+        '<p id="pFecha_'+id+'" class="fecha">'+fecha+'</p></div>';
+
+    return lineaNoticia;
+    
+}
 
 function armarDropDown(div,nameId, list)
 {
@@ -100,22 +122,7 @@ function altaConRespuestaPost(noticia)
 
 }
 
-function armarNoticia(id,tema,titulo, noticia, fecha)
-{
-    var lineaNoticia =  
-        '<div id="noticia_'+id+'" class="noticia">'+
-        '<button id="btnEliminar_'+id+'" class="btnChico btnCerrar" onclick="eliminarClick();">X</button>'+
-        '<button id="btnEditar_'+id+'" class="btnChico btnEditar" onclick="editarClick();">E</button>';
 
-    lineaNoticia += 
-        '<h2>'+titulo+'</h2>' +
-        '<p id="pTema_'+id+'" class="tema">'+tema+'</p>'+
-        '<p id="pDetalle_'+id+'" class="detalle">'+noticia+'</p>'+
-        '<p id="pFecha_'+id+'" class="fecha">'+fecha+'</p></div>';
-
-    return lineaNoticia;
-    
-}
 
 
 function eliminarClick()
