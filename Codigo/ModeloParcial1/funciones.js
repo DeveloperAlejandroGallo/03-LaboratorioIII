@@ -27,14 +27,17 @@ function operarConRespuestaSrv(data)
     {
         switch (opcionABML)
         {
-            case "alta":
+            case "nuevaNoticia":
                 altaConRespuestaPost(data);
                 break;
-            case "editar":
+            case "editarNoticia":
                 editarConRespuestaPost();
                 break;
-            case "eliminar":
+            case "eliminarNoticia":
                 eliminarConRespuestaPost();
+                break;
+            case "noticias":
+                obtenerNoticiasGet(data);
                 break;
             default:
                 break;
@@ -48,8 +51,7 @@ function operarConRespuestaSrv(data)
 
 function obtenerNoticiasGet(datos)
 {
-    noticiasList = JSON.parse(datos); //string pasado a json - es un array de json
-
+    noticiasList =datos; //string pasado a json - es un array de json
     listar();
 }
 
@@ -120,11 +122,11 @@ function eliminarClick()
 {
     if(confirm("¿Desea eliminar la noticia?"))
     {
-        opcionABML = "eliminar";
+        opcionABML = "eliminarNoticia";
         idActual = (event.target.id).split("_")[1];
         paramsStr = {"id":idActual}; //formato json
 
-        ejecutarPost("eliminarNoticia",functionCallBackPost,JSON.stringify(paramsStr));
+        llamarServidor("POST",opcionABML,functionCallBack,JSON.stringify(paramsStr));
     }
 }
 
@@ -180,7 +182,7 @@ function editarConRespuestaPost()
 
 function modificarClick()
 {
-    opcionABML = "editar";
+    opcionABML = "editarNoticia";
 
     //alert("guardar");
     var titulo  = $("txtTitulo").value;
@@ -188,7 +190,7 @@ function modificarClick()
     var noticia = $("txtDescripcion").value;
     paramsStr = {"id":idActual,"email":"algo@gmail.com","tema":tema,"titulo":titulo,"noticia":noticia}; //formato json
     //alert(JSON.stringify(paramsStr));
-    ejecutarPost("editarNoticia",functionCallBackPost,JSON.stringify(paramsStr));
+    llamarServidor("POST",opcionABML,functionCallBack,JSON.stringify(paramsStr));
     
     cerrar();
 }
@@ -247,7 +249,7 @@ function cerrar()
 
 function guardarClick()
 {
-    opcionABML = "alta";
+    opcionABML = "nuevaNoticia";
 
     //alert("guardar");
     var titulo  = $("txtTitulo").value;
@@ -255,7 +257,7 @@ function guardarClick()
     var noticia = $("txtDescripcion").value;
     paramsStr = {"email":"algo@gmail.com","tema":tema,"titulo":titulo,"noticia":noticia}; //formato json
     //alert(JSON.stringify(paramsStr));
-    ejecutarPost("nuevaNoticia",functionCallBackPost,JSON.stringify(paramsStr));
+    llamarServidor("POST",opcionABML,functionCallBack,JSON.stringify(paramsStr));
     
     cerrar();
 
