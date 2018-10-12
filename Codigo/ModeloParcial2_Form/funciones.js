@@ -27,14 +27,17 @@ function operarConRespuestaSrv(data)
     {
         switch (opcionABML)
         {
-            case "alta":
+            case "nuevaNoticia":
                 altaConRespuestaPost(data);
                 break;
-            case "editar":
+            case "editarNoticia":
                 editarConRespuestaPost();
                 break;
-            case "eliminar":
+            case "eliminarNoticia":
                 eliminarConRespuestaPost();
+                break;
+            case "noticias":
+                obtenerNoticiasGet(data);
                 break;
             default:
                 break;
@@ -48,8 +51,7 @@ function operarConRespuestaSrv(data)
 
 function obtenerNoticiasGet(datos)
 {
-    noticiasList = JSON.parse(datos); //string pasado a json - es un array de json
-
+    noticiasList =datos; //string pasado a json - es un array de json
     listar();
 }
 
@@ -65,10 +67,32 @@ function listar()
     {
         news = armarNoticia(noticiasList[i].id,noticiasList[i].tema,noticiasList[i].titulo,noticiasList[i].noticia,noticiasList[i].fecha)
         noticiasDiv.innerHTML += news;
+        // $("btnEliminar_"+noticiasList[i].id).addEventListener("click",eliminarClick);
+        // $("btnEditar_"+noticiasList[i].id).addEventListener("click",editarClick);
     }
 }
 
+function armarNoticia(id,tema,titulo, noticia, fecha)
+{
+    var lineaNoticia =  
+        '<div id="noticia_'+id+'" class="noticia">'+
+        '<button id="btnEliminar_'+id+'" class="btnChico btnCerrar" onclick="eliminarClick();">X</button>'+
+        '<button id="btnEditar_'+id+'" class="btnChico btnEditar" onclick="editarClick();">E</button>';
 
+    // var lineaNoticia =  
+    //     '<div id="noticia_'+id+'" class="noticia">'+
+    //     '<button id="btnEliminar_'+id+'" class="btnChico btnCerrar">X</button>'+
+    //     '<button id="btnEditar_'+id+'" class="btnChico btnEditar">E</button>';
+
+    lineaNoticia += 
+        '<h2>'+titulo+'</h2>' +
+        '<p id="pTema_'+id+'" class="tema">'+tema+'</p>'+
+        '<p id="pDetalle_'+id+'" class="detalle">'+noticia+'</p>'+
+        '<p id="pFecha_'+id+'" class="fecha">'+fecha+'</p></div>';
+
+    return lineaNoticia;
+    
+}
 
 function armarDropDown(div,nameId, list)
 {
@@ -98,33 +122,18 @@ function altaConRespuestaPost(noticia)
 
 }
 
-function armarNoticia(id,tema,titulo, noticia, fecha)
-{
-    var lineaNoticia =  
-        '<div id="noticia_'+id+'" class="noticia">'+
-        '<button id="btnEliminar_'+id+'" class="btnChico btnCerrar" onclick="eliminarClick();">X</button>'+
-        '<button id="btnEditar_'+id+'" class="btnChico btnEditar" onclick="editarClick();">E</button>';
 
-    lineaNoticia += 
-        '<h2>'+titulo+'</h2>' +
-        '<p id="pTema_'+id+'" class="tema">'+tema+'</p>'+
-        '<p id="pDetalle_'+id+'" class="detalle">'+noticia+'</p>'+
-        '<p id="pFecha_'+id+'" class="fecha">'+fecha+'</p></div>';
-
-    return lineaNoticia;
-    // 
-}
 
 
 function eliminarClick()
 {
     if(confirm("¿Desea eliminar la noticia?"))
     {
-        opcionABML = "eliminar";
+        opcionABML = "eliminarNoticia";
         idActual = (event.target.id).split("_")[1];
         paramsStr = {"id":idActual}; //formato json
 
-        ejecutarPost("eliminarNoticia",functionCallBackPost,JSON.stringify(paramsStr));
+        llamarServidor("POST",opcionABML,functionCallBack,JSON.stringify(paramsStr));
     }
 }
 
@@ -156,7 +165,7 @@ function editarClick()
     $("txtDescripcion").value = noticiasList[pos].noticia;
     $("selTemas").value = noticiasList[pos].tema;
     
-
+    
 }
 
 function editarConRespuestaPost()
@@ -180,7 +189,7 @@ function editarConRespuestaPost()
 
 function modificarClick()
 {
-    opcionABML = "editar";
+    opcionABML = "editarNoticia";
 
     //alert("guardar");
     var titulo  = $("txtTitulo").value;
@@ -188,10 +197,9 @@ function modificarClick()
     var noticia = $("txtDescripcion").value;
     paramsStr = {"id":idActual,"email":"algo@gmail.com","tema":tema,"titulo":titulo,"noticia":noticia}; //formato json
     //alert(JSON.stringify(paramsStr));
-    ejecutarPost("editarNoticia",functionCallBackPost,JSON.stringify(paramsStr));
+    llamarServidor("POST",opcionABML,functionCallBack,JSON.stringify(paramsStr));
     
-    btnAgregar.hidden = false;
-    boxData.hidden = true; 
+    cerrar();
 }
 
 function getIndiceId(id,lista)
@@ -208,6 +216,7 @@ function getIndiceId(id,lista)
 
 function abrirCargar(tipo)
 {
+
     var btnGuardar = $("btnGuardarData");
     var encabezado = $("encabezadoData");
     armarDropDown("ddlTemas","selTemas",temasList);
@@ -228,10 +237,11 @@ function abrirCargar(tipo)
         encabezado.innerHTML = "Nueva Noticia";
     }
 
+    var textbox = $("txtTitulo");
+    textbox.autofocus = true;
+    
     var btnAgregar = $("btnAgregar");
     var boxData = $("boxData");
-
-
 
     btnAgregar.hidden = true;
     boxData.hidden = false;
@@ -239,6 +249,7 @@ function abrirCargar(tipo)
 
 function cerrar()
 {
+
     var btnAgregar = $("btnAgregar");
     var boxData = $("boxData");
 
@@ -248,7 +259,7 @@ function cerrar()
 
 function guardarClick()
 {
-    opcionABML = "alta";
+    opcionABML = "nuevaNoticia";
 
     //alert("guardar");
     var titulo  = $("txtTitulo").value;
@@ -256,10 +267,9 @@ function guardarClick()
     var noticia = $("txtDescripcion").value;
     paramsStr = {"email":"algo@gmail.com","tema":tema,"titulo":titulo,"noticia":noticia}; //formato json
     //alert(JSON.stringify(paramsStr));
-    ejecutarPost("nuevaNoticia",functionCallBackPost,JSON.stringify(paramsStr));
+    llamarServidor("POST",opcionABML,functionCallBack,JSON.stringify(paramsStr));
     
-    btnAgregar.hidden = false;
-    boxData.hidden = true;
+    cerrar();
 
 }
 
@@ -276,6 +286,16 @@ function addLoadingClass()
   
 }
 
+function busy()
+{
+    const container = document.getElementsByClassName("principal")[0];
+  
+    if(container.classList.contains("busy")) 
+      container.classList.remove("busy");
+    else 
+      container.classList.add("busy");
+      
+}
 
 
 

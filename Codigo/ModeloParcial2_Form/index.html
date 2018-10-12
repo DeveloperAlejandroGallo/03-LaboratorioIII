@@ -12,11 +12,18 @@
 </head>
 <body>
     <div class="principal" >
-        <button id="btnAgregar" class="btnAgregar">Agregar</button>
-        <h1>Últimas Noticias</h1>
+        <div id="divAgregar">
+            <button id="btnAgregar" class="btnAgregar">Agregar</button>
+        </div>
+        <div id="divTituloPpal">
+            <h1>Últimas Noticias</h1>
+        </div>
         <div id="noticias">
         </div>
-        <form action="submit" id="boxData"  hidden class="boxData">
+        <div class="fixed">Las ultimas noticias</div>
+    </div>
+
+    <form id="boxData"  hidden class="boxData" method="post">
             <button id="btnCerrarData" class="btnChico btnCerrar">X</button>
             <h2 id="encabezadoData">Noticia</h2>
             <label for="txtTitulo">Titulo</label>
@@ -31,10 +38,9 @@
             <br>
             <textarea class="txtBoxMultilinea" name="txtDescripcion" id="txtDescripcion" required></textarea>
             <br><br>
-            <button id="btnGuardarData" class="btnAgregar btnGuardarData" ></button>
-        </form>
-        <div class="fixed">Las ultimas noticias</div>
-    </div>
+            <button type="submit" id="btnGuardarData" class="btnAgregar btnGuardarData" ></button>
+    </form>
+
 </body>
 </html>
 
