@@ -25,3 +25,8 @@ tr:nth-child(even) {
 }
 
 
+thead
+{
+    background-color: cadetblue;
+    color: #dddddd;
+}

@@ -156,7 +156,7 @@ function editarClick()
     $("txtDescripcion").value = noticiasList[pos].noticia;
     $("selTemas").value = noticiasList[pos].tema;
     
-
+    
 }
 
 function editarConRespuestaPost()
@@ -190,8 +190,7 @@ function modificarClick()
     //alert(JSON.stringify(paramsStr));
     ejecutarPost("editarNoticia",functionCallBackPost,JSON.stringify(paramsStr));
     
-    btnAgregar.hidden = false;
-    boxData.hidden = true; 
+    cerrar();
 }
 
 function getIndiceId(id,lista)
@@ -208,6 +207,7 @@ function getIndiceId(id,lista)
 
 function abrirCargar(tipo)
 {
+
     var btnGuardar = $("btnGuardarData");
     var encabezado = $("encabezadoData");
     armarDropDown("ddlTemas","selTemas",temasList);
@@ -231,14 +231,13 @@ function abrirCargar(tipo)
     var btnAgregar = $("btnAgregar");
     var boxData = $("boxData");
 
-
-
     btnAgregar.hidden = true;
     boxData.hidden = false;
 }
 
 function cerrar()
 {
+
     var btnAgregar = $("btnAgregar");
     var boxData = $("boxData");
 
@@ -258,8 +257,7 @@ function guardarClick()
     //alert(JSON.stringify(paramsStr));
     ejecutarPost("nuevaNoticia",functionCallBackPost,JSON.stringify(paramsStr));
     
-    btnAgregar.hidden = false;
-    boxData.hidden = true;
+    cerrar();
 
 }
 
@@ -276,6 +274,16 @@ function addLoadingClass()
   
 }
 
+function busy()
+{
+    const container = document.getElementsByClassName("principal")[0];
+  
+    if(container.classList.contains("busy")) 
+      container.classList.remove("busy");
+    else 
+      container.classList.add("busy");
+      
+}
 
 
 

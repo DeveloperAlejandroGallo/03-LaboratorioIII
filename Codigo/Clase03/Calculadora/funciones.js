@@ -45,7 +45,7 @@ function operar(nro1,nro2)
             break;
         case "/":
             if(nro2 != 0)
-                resultado = nr1 / parseFloat(nro2);
+                resultado = nro1 / parseFloat(nro2);
             else
                 alert("División por 0");
             break;

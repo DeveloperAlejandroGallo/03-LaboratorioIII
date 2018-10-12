@@ -1,4 +1,4 @@
-var listaPersonas = [];
+var listaPersonas = new Array();
 
 
 window.onload = cargarWindow;
@@ -50,17 +50,24 @@ function cerrar()
 
 function guardar()
 {
-    var body = $("tbdPersonas");
-    var nombre = $("txtNombre");
-    var apellido = $("txtApellido");
-    body.innerHTML += "<tr><td>"+nombre.value+"</td><td>"+apellido.value+"</td><td><a href=''>Eliminar</a></td></tr>";
+    listaPersonas.push({"nombre":$("txtNombre").value,"apellido":$("txtApellido").value});
+    cargarLista();
+    // var body = $("tbdPersonas");
+    // var nombre = $("txtNombre");
+    // var apellido = $("txtApellido");
+    // body.innerHTML += "<tr><td>"+nombre.value+"</td><td>"+apellido.value+"</td><td><a href=''>Eliminar</a></td></tr>";
 }
 
 function tagA(event)
 {
+    
+    var index = (event.target.id).split("_")[1];
     event.preventDefault();
-    data.splice(index,1);
-    cargarDatosIniciales();
+    
+    if(confirm("Desea eliminar la persona:\n"+listaPersonas[index].apellido+", "+listaPersonas[index].nombre))
+        listaPersonas.splice(index,1);
+
+        cargarLista();
 }
 // tagA(event) //event es la variable del evento que se esta invocando
 
@@ -97,20 +104,29 @@ function inicializarTabla()
     for(var i=0; i<=10;i++)
         listaPersonas.push({"nombre":"Nombre "+i,"apellido":"Apellido "+i});
 
-    cargarLista(listaPersonas);
+    cargarLista();
 }
 
 /**Cargar el objeto Json con el vector */
 
-function cargarLista(lista)
+function cargarLista()
 {
+    console.log(listaPersonas);
     var body = $("tbdPersonas");
-    for(var i=0; lista.length;i++)
+    body.innerHTML = "";
+    for(var i=0;i< listaPersonas.length;i++)
     {
-        body.innerHTML += "<tr><td>"+lista[i].nombre+"</td><td>"+lista[i].apellido+"</td><td><a href=''>Eliminar</a></td></tr>";
+        body.innerHTML += '<tr id="tr_'+i+'"><td>'+listaPersonas[i].nombre+'</td><td>'+listaPersonas[i].apellido+'</td><td><a id="a_'+i+'" href="" onclick="tagA(event);">Eliminar</a></td></tr>';
     }
     
 }
 
+
+// function eliminar()
+// {
+//     var index = (event.target.id).split("_")[1];
+//     listaPersonas.splice(index,1);
+//     cargarLista(listaPersonas);
+// }
 
 

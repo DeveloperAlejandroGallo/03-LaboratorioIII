@@ -12,11 +12,18 @@
 </head>
 <body>
     <div class="principal" >
-        <button id="btnAgregar" class="btnAgregar">Agregar</button>
-        <h1>Últimas Noticias</h1>
+        <div id="divAgregar">
+            <button id="btnAgregar" class="btnAgregar">Agregar</button>
+        </div>
+        <div id="divTituloPpal">
+            <h1>Últimas Noticias</h1>
+        </div>
         <div id="noticias">
         </div>
-        <div id="boxData"  hidden class="boxData">
+        <div class="fixed">Las ultimas noticias</div>
+    </div>
+
+    <div id="boxData"  hidden class="boxData">
             <button id="btnCerrarData" class="btnChico btnCerrar">X</button>
             <h2 id="encabezadoData">Noticia</h2>
             <label for="txtTitulo">Titulo</label>
@@ -33,8 +40,7 @@
             <br><br>
             <button id="btnGuardarData" class="btnAgregar btnGuardarData" ></button>
         </div>
-        <div class="fixed">Las ultimas noticias</div>
-    </div>
+
 </body>
 </html>
 
