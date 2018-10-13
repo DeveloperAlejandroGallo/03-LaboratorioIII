@@ -231,24 +231,32 @@ function validarCampos()
         addError("txtNombre");
         retorno = false;
     }
+    else
+        delError("txtNombre");
     
     if(apellido.length < 3)
     {
         addError("txtApellido");
         retorno = false;
     }
+    else
+        delError("txtApellido");
     
     if(sexo == null)
     {
         addError("divSexo");
         retorno = false;
     }
+    else
+        delError("divSexo");
 
     if(!fechaValida(fecha))
     {
         addError("txtFecha");
         retorno = false;
     }
+    else
+        delError("txtFecha");
 
     return retorno;    
 
