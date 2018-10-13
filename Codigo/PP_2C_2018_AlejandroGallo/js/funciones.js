@@ -256,54 +256,32 @@ function validarCampos()
 
 function fechaValida(fecha)
 {
-    var anio = Number(fecha.split("-")[0]);
-    var mes =  Number(fecha.split("-")[1]);
-    var dia =  Number(fecha.split("-")[2]);
-
-    var fechaYYYYMMDD = (anio).pad(4) + (mes).pad(2)+(dia).pad(2);
-    var fechaActual = armarFechaYYYYMMDD(new Date());
-
-
     var ret = true;
 
-    console.log("fechaYYYYMMDD: "+fechaYYYYMMDD+"\nfecha: "+fecha+"\ndia: "+dia+"\nmes: "+mes+"\nanio: "+anio+"\n");
-    
-    
+    var anio = fecha.split("-")[0];
+    var mes =  fecha.split("-")[1];
+    var dia =  fecha.split("-")[2];
+    var fec = new Date(anio, mes, dia);
+
+    var fechaYYYYMMDD = dateToYYYYMMDD(fec);
+    var fechaActual = dateToYYYYMMDD(new Date());
+
+
     if(fechaActual < fechaYYYYMMDD)
         ret = false;    
-    
-    
-    // if(anio <= anioActual)
-    // {
-    //     if(anio = anioActual)
-    //     {
-    //         if(mes <= mesActual)
-    //         {
-    //             if(mes = mesActual)
-    //             {
-    //                 if(dia > diaActual)
-    //                     ret = false;
-    //             }
-    //         }
-    //         else
-    //             ret = false;
-    //     }
-    // }   
-    // else
-    //     ret = false;
     
     return ret;
 
 }
 
-function armarFechaYYYYMMDD(fecha)
+function dateToYYYYMMDD(fecha)
 {
     var anio = fecha.getFullYear();
     var mes = fecha.getMonth();
     var dia = fecha.getDate();
 
     var date = (anio).pad(4) + (mes).pad(2)+(dia).pad(2);
-    console.log("fechaActual: "+date+"\nfecha: "+fecha+"\ndia: "+dia+"\nmes: "+mes+"\nanio: "+anio+"\n");
+    
     return date;
 }
 
