@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/conexion.js"></script>
+    <script src="js/funciones.js"></script>
+    <title>Alejandro Gallo</title>
+</head>
+<body class="body">
+    <div class="principal" >
+        <div id="divTituloPpal">
+            <h1>Personas</h1>
+        </div>
+        <div id="contenedor">
+            <table id=tblPersonas>
+                <thead>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Fecha</th>
+                    <th>Sexo</th>
+                </thead>
+                <tbody id="personas">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="boxData"  hidden class="boxData">
+        <button id="btnCerrarData" class="btnChico btnCerrar">X</button>
+        <h2 id="encabezadoData">Persona</h2>
+        <label for="txtNombre">Nombre</label>
+        <br>
+        <input type="text" class="txtBox1linea" name="txtNombre" id="txtNombre" placeholder="Ingrese el Nombre..." required>
+        <br>
+        <label for="txtApellido">Apellido</label>
+        <br>
+        <input type="text" class="txtBox1linea" name="txtApellido" id="txtApellido" placeholder="Ingrese el Apellido..." required>
+        <br>
+        <label for="txtFecha">Fecha</label>
+        <br>
+        <input type="text" name="txtFecha" id="txtFecha">
+        <br>
+        <label for="">Sexo:</label> 
+        <br>
+        <div id="divSexo">
+            <input type="radio" name="rdbSexo" id="rdbSexoM" value="Male" checked>Masculino 
+            <input type="radio" name="rdbSexo" id="rdbSexoF" value="Female" >Femenino
+        </div>
+        <br><br>
+        <button id="btnEliminarData" class="btnAgregar btnCerrar" >Eiminar</button>
+        <button id="btnGuardarData" class="btnAgregar btnGuardarData" >Modificar</button>
+    </div>
+
+</body>
+</html>
+

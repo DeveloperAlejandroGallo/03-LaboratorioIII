@@ -16,8 +16,15 @@ function cargarWindow()
     btnAgregar.addEventListener("click",abrirCargar); //variable de tipo funcion abrir
     var btnCerrar = $("btnCerrarData");
     btnCerrar.addEventListener("click",cerrar);
+    var frmPpal = $("boxData");
+    frmPpal.addEventListener("onsubmit",validateForm);
     // var btnEditar = $("btnEditarData");
     // btnEditar.addEventListener("click",editar);
+}
+
+function validateForm()
+{
+    alert("Aca se valida vieja!");
 }
 
 function operarConRespuestaSrv(data)
