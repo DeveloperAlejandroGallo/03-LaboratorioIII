@@ -74,10 +74,10 @@ function armarPersona(id,nombre,apellido, fecha, sexo)
 {
     var lineaPersona =  
         '<tr id="col_'+id+'" ondblclick="editarClick();">'+
-            '<td id="n_'+id+'">'+nombre+'</td>'+
-            '<td id="a_'+id+'">'+apellido+'</td>'+
-            '<td id="f_'+id+'">'+fecha+'</td>'+
-            '<td id="s_'+id+'">'+sexo+'</td>'+
+            '<td>'+nombre+'</td>'+
+            '<td>'+apellido+'</td>'+
+            '<td>'+fecha+'</td>'+
+            '<td>'+sexo+'</td>'+
         '<tr>';
     return lineaPersona;
     
@@ -140,7 +140,7 @@ function eliminarConRespuestaPost()
 function editarClick()
 {
     console.log(event.target.id);
-    idActual = (event.target.id).split("_")[1];
+    idActual = event.target.parentNode.getAttribute('id').split("_")[1];
 
     pos = getIndiceId(idActual,personasList);
     delError("txtNombre");
