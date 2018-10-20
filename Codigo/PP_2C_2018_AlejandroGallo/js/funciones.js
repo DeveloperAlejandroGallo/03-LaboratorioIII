@@ -96,19 +96,6 @@ function getIndiceId(id,lista)
 }
 
 
-// function altaConRespuestaPost(persona)
-// {
-//     personasTbl = $("personas");
-    
-//     personasList.push(persona);
-
-//     listar();
-
-// }
-
-
-
-
 function eliminarClick()
 {
     if(confirm("¿Desea eliminar la persona?"))
@@ -155,7 +142,6 @@ function editarClick()
         $("rdbSexoM").checked = true;
     else
         $("rdbSexoF").checked = true;
-    
     
 }
 
