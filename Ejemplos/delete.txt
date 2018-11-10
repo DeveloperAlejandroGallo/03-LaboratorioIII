@@ -1,0 +1,21 @@
+
+  function cargarDatosIniciales(){
+    var tCuerpo = document.getElementById("tCuerpo");
+    tCuerpo.innerHTML= "";
+    for(var i=0;i<data.length;i++){
+    
+
+      tCuerpo.innerHTML = tCuerpo.innerHTML +
+      "<tr><td>"+data[i].first+"</td>"+
+      "<td>"+data[i].last+"</td>"+
+      "<td><a href='' onclick='tagA(event,"+i+")'>borrar</a></td></tr>";
+    }
+  }
+
+  function tagA(event,index){
+      event.preventDefault();
+
+      data.splice(index,1);
+      cargarDatosIniciales();
+      
+    }

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap - Orden de agregado -->
+    <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Jquery -->
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- js de bootstrap -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Mi hoja de estilo -->
+    <link rel="stylesheet" href="estilos.css">
+    <title>Bootstrap</title>
+</head>
+<body>
+    <button class="btn btn-primary">Ejemplo</button>
+    <div class="container"> <!-- Container principal -->
+        <div class="row"> <!-- Clase row equivale que va a tomar todo el ancho -->
+            <div class="col-6 col-sm-7 col-md-8 col-lg-9 col-xl-10 borde">UNO</div>
+            <div class="col-6 col-sm-5 col-md-4 col-lg-3 col-xl-2 borde" >DOS</div>
+        </div>
+        <div class="row align-items-start divRow"><!-- aliena el row -->
+            <div class="col borde"></div>
+            <div class="col borde"></div>
+            <div class="col borde"></div>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <th>Titulo0</th>
+                <th>Titulo1</th>
+                <th>Titulo2</th>
+                <th>Titulo3</th>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Dato0</td>
+                <td>Dato1</td>
+                <td>Dato2</td>
+                <td>Dato3</td>
+            </tr>
+            <tr class="table-danger">
+                <td>Dato0</td>
+                <td>Dato1</td>
+                <td>Dato2</td>
+                <td>Dato3</td>
+            </tr>
+            <tr>
+                <td>Dato0</td>
+                <td>Dato1</td>
+                <td>Dato2</td>
+                <td>Dato3</td>
+            </tr>
+            <tr>
+                <td>Dato0</td>
+                <td>Dato1</td>
+                <td>Dato2</td>
+                <td>Dato3</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <form>
+            <div class="form-group">
+                <label for="">Hola</label>
+                <div class="col-md-9">
+                    <input type="text" name="txt" id="txt" value="Aca va un valor">
+                </div>
+                <div class="btn btn-group">
+                    <button class="btn btn-block">block</button>
+                    <button class="btn btn-danger">danger</button>
+                    <button class="btn btn-dark">dark</button>
+                    <button class="btn btn-info">info</button>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+</body>
+</html>

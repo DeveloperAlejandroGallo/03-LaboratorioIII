@@ -1,0 +1,12 @@
+.borde
+{
+    border: double;
+    border-color: blue;
+}
+
+
+.divRow
+{
+    height: 150px;
+    background-color: goldenrod;
+}
