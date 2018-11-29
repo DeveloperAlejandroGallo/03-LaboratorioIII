@@ -16,7 +16,7 @@ function llamarBatman( llamar ){
   }
 }
 
-llamarBatman();
+llamarBatman(true);
 
 // Rest?
 function unirheroes( ...personas:string[] ){

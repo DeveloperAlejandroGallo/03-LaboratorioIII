@@ -1,0 +1,17 @@
+{
+  "name": "Modu_Dif_Namespace_Class_Input",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Animal.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jquery": "^3.3.22",
+    "bootstrap": "^4.1.3",
+    "jquery": "^3.3.1"
+  }
+}

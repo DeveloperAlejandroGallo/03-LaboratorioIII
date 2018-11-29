@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap - Orden de agregado -->
+    <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Jquery -->
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- js de bootstrap -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Mi js -->
+    <script src="./funciones.js"></script>
+    <!-- Mi hoja de estilo -->
+    <link rel="stylesheet" href="estilos.css">    
+    <script src="./Animal.js"></script>
+    <script src="./Perro.js"></script>
+    <script src="./Gato.js"></script>
+    <script src="./ejemplo.js"></script>
+    <title>Practica</title>
+</head>
+<body>
+    <div class="container-fluid"><br>
+        <input type="text" name="txtAnimal" id="txtAnimal" ><br>
+        <input type="radio" name="rbTipoAnimal" id="rbPerro" value="Perro" checked>Perro<br>
+        <input type="radio" name="rbTipoAnimal" id="rbGato" value="Gato" >Gato<br>
+        <button id="btnGuardar" onclick="ejemplo.Programa.guardar()" class="btn btn-outline-primary">Guardar</button>
+        <button id="btnHablar" onclick="ejemplo.Programa.accionar()" class="btn btn-outline-primary">Hablar</button>
+    </div> <!-- Container principal -->
+</body>
+</html>

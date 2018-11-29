@@ -1,0 +1,25 @@
+En typescript
+ABM de la lista e animales
+Modelo de grilla bootstrap - cada componente el 100% de la pantalla - a lo largo  de 12
+Todo con boostrap
+
+Transformar esa lista a un array de obj json
+Clases deben tener metodo para convertir a json.
+
+Guardar en el  local storge el json (jsonstringify)
+Si esta en el local armemos la lista y los objetos.
+Luego lo pasamos a una tabla con map, reduce y filter.
+
+Abm entidad que va a tener herencia, metodos heredados para trabajar con typescript.
+A ese abm le hacemos map reduce y filter.
+-------------------
+
+A la lista filtrarla por boton, reduzco con otro  
+Aplicar Map para quitar una columna
+
+Bootstrap Modal
+Modal header
+Modal body
+Modal Footer
+
+
