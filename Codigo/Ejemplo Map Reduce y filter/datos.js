@@ -1045,7 +1045,7 @@ var datos =[
   // mas grande.
   lib.olderUser = function () 
   {
-    console.log("Older User");
+    console.log("Older User: ");
 
     var edadMayor = datos.reduce(function(edad,persona)
     {
@@ -1064,7 +1064,7 @@ var datos =[
   // mas grande.
   lib.olderUser2 = function () 
   {
-    console.log("Older User 2");
+    
 
     var a = datos.reduce(function(personaMayor,persona)
     {
@@ -1075,20 +1075,19 @@ var datos =[
    
     },{name: "", age:0});
 
-    console.log(a);
+    console.log("Older User 2: "+a);
   };
 
   // Retornar el promedio de edad de los usuarios (number)
   lib.userAgeAverage = function () 
   {
-    console.log("User Age Average");
-          
+
     let avg = datos.reduce( function (sum, item)
     {
       return sum + item.age;
     },0) / datos.length ;
 
-    console.log(avg);
+    console.log("User Age Average: " +avg.toString());
   };
 
 
@@ -1097,7 +1096,13 @@ var datos =[
   lib.userMaleAgeAverage = function () 
   {
     
-  
+    let avg = datos.filter(x => x.gender=="male").reduce(
+      function(sumEdad, objActual)
+      { 
+        console.log("=>"+objActual.age);
+        return sumEdad + objActual.age;
+      },0) / datos.filter(x => x.gender == "male").length;
+    console.log("user Male Age Average: "+ avg.toString());
   };
 
   // Retornar el promedio de edad de los usuarios mujeres (number)
@@ -1108,8 +1113,15 @@ var datos =[
   // Retornar un objeto  de etiquetas (tags)
   // cada property del objeto es el nombre de una etiqueta
   // y el value es la cantidad de usuarios que tienene esa etiqueta
-  lib.tagCloud = function () {
-    
+  lib.tagCloud = function () 
+  {
+    let etiquetas = datos.reduce(
+      function(acum, objActual)
+      {
+        return {nombre:objActual.tags[0],cantidad:1};
+      },{"nombre":"","cantidad":0})
+
+      return etiquetas;
   };
   
   console.log(lib.femaleUsers());
@@ -1118,3 +1130,5 @@ var datos =[
   console.log(lib.olderUser());
   console.log(lib.olderUser2());
   console.log(lib.userAgeAverage());
+  console.log(lib.userMaleAgeAverage());
+  console.log(lib.tagCloud());

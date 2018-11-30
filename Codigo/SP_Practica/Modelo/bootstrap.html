@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap - Orden de agregado -->
+    <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Jquery -->
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- js de bootstrap -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Bootstrap tables -->
+    <link rel="stylesheet" href="./node_modules/bootstrap-table/dist/bootstrap-table.min.css">
+    <script src="./node_modules/bootstrap-table/dist/bootstrap-table.min.js"></script>
+    <script src="./node_modules/bootstrap-table/dist/locale/bootstrap-table-es-AR.min.js"></script>
+    <!-- Mi js -->
+    <script src="./funciones.js"></script>
+    <!-- Mi hoja de estilo -->
+    <link rel="stylesheet" href="estilos.css">
+    <!-- Clases -->
+    <script src="./Animal.js"></script>
+    <script src="./Perro.js"></script>
+    <script src="./Gato.js"></script>
+    <script src="./Pajaro.js"></script>
+    <script src="./programa.js"></script>
+    <title>Bootstrap</title>
+</head>
+
+<body>
+<div class="container-fluid">
+    <div class="container">
+
+    <!-- ENCABEZADO -->
+    <!-- <div class="container-fluid"> -->
+        <div class="form-row  form-group">
+            <div class="col-sm-12 alert-info py-2">
+                <h1>Segundo Parcial</h1>
+            </div>
+        </div>
+        <div class="form-row form-group">
+            <input type="button" id="btnAlta" class="btn btn-primary   col-xs-12 col-sm-12 col-md-2 col-lg-2" data-toggle="modal"
+                data-target="#cargaAnimales" value="Agregar Animal"></button>
+            <input type="button" id="btnGrilla" class="btn btn-success col-xs-12 col-sm-12 col-md-2 col-lg-2" data-toggle="modal"
+                value="Ocultar Grilla"></button>
+        </div>
+        <div class="form-row form-group ">
+                <label class="col-xs-3 col-sm-3 col-md-2 col-lg-2 " for="txtbuscar">Buscar</label>
+                <input class="col-xs-9 col-sm-9 col-md-4 col-lg-4 " type="search" name="txtBuscar" id="txtBuscar" placeholder="Ingrese Nombre a Buscar...">
+                <input class="col-xs-12 col-sm-12 col-md-2 col-lg-2 "  type="button" id="btnBuscar" value="Buscar">
+                <label class="col-xs-10 col-sm-10 col-md-2 col-lg-2" >Registros: </label>
+                <label class="col-xs-2  col-sm-2  col-md-2 col-lg-2" id="lblCantReg" text=""></label>
+        </div>
+    <!-- </div> -->
+    <!-- <div class="container-fluid"></div> -->
+        <div class="form-row form-group">
+            <b><label>Ocultar/Mostra Filas: </label></b>
+            <input type="checkbox" class="togglecol" data-target="column1" id="chkCol1" checked>Nombre
+            <input type="checkbox" class="togglecol" data-target="column2" id="chkCol2" checked>Animal
+            <input type="checkbox" class="togglecol" data-target="column3" id="chkCol3" checked>Raza
+            <input type="checkbox" class="togglecol" data-target="column4" id="chkCol4" checked>Altura
+            <input type="checkbox" class="togglecol" data-target="column5" id="chkCol5" checked>Nacimiento
+        </div>
+    <!-- </div> -->
+    <!-- FIN ENCABEZADO -->
+    <!-- GRILLA -->
+    <div class="table-responsive">
+        <table id="tAnimales" class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="column1">Nombre</th>
+                    <th class="column2">Animal</th>
+                    <th class="column3">Raza</th>
+                    <th class="column4">Altura</th>
+                    <th class="column5">Nacimiento</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+</body>
+
+</html>
