@@ -30,17 +30,16 @@ namespace ejemplo
             /** Doble clieck en la grilla, levanta el modal */
             $("#tAnimales").on("dblclick", "tr", function (e) 
             {
-                let index: number = $(e.currentTarget).index(); //Obtener el indice de una fila
+                //let index: number = $(e.currentTarget).index(); //Obtener el indice de una fila
 
                 let key: string = $(this).find("td:first").html(); //:nth-child(1) tambien sirve
                 idActual = key;
                 //let key2 = $(this).find("td:nth-child(2)").html(); //obtengo al valor del td especificado como param.
                 let obj: mascota.IAnimal = JSON.parse(localStorage.getItem(key));
 
-                console.log("Formato Fecha: " + obj.fNacimiento);
                 $("#txtNombre").val(obj.nombre);
                 $("#txtRaza").val(obj.raza);
-                $("txtAltura").val(obj.altura);
+                $("#txtAltura").val(obj.altura);
                 $("#txtFNacimiento").val(obj.fNacimiento);
 
                 $("#rb" + obj.tipo).prop("checked", true);
@@ -95,6 +94,12 @@ namespace ejemplo
 
             $("#btnAlta").click(function ()
             {
+                $("#txtNombre").val("");
+                $("#txtRaza").val("");
+                $("#txtAltura").val("");
+                $("#txtFNacimiento").val("");
+                $("#rbPerro").attr('checked','checked');
+
                 $('#divGuardar').show();
                 $('#divEliminar').hide();
                 $('#divModificar').hide();
@@ -125,7 +130,7 @@ namespace ejemplo
                         
                         obj.tipo = $('input:radio[name=rbTipoAnimal]:checked').val().toString();
                         obj.raza = $("#txtRaza").val().toString();
-                        obj.altura = <number>$("txtAltura").val();
+                        obj.altura = <number>$("#txtAltura").val();
                         obj.fNacimiento = $("#txtFNacimiento").val().toString();
     
                         localStorage.setItem(idActual,JSON.stringify(obj));
@@ -173,9 +178,9 @@ namespace ejemplo
 
             $('#txtBuscar').keypress(
              function(ev)
-            {
+            {   
                 if(ev.which == 13)
-                    $('btnBuscar').click();
+                    $('#btnBuscar').click();
             });
 
         });//Fin document ready
@@ -228,7 +233,9 @@ namespace ejemplo
             console.log(JSON.parse(JSON.stringify(Programa.animales)));
 
             let tbody: string = "";
-            let cantReg:number = Programa.animales.reduce(
+            let cantReg:number = Programa.animales.length;
+
+            let promedioAltura:number = Programa.animales.reduce(
                 function(acum:number, valorActual:mascota.IAnimal)
                 {
                     let num:number = 0;
@@ -238,9 +245,11 @@ namespace ejemplo
                     }
                     
                     return parseInt(acum.toString(), 10) + parseInt(num.toString(), 10)   ;
-                },0);
-                
-            $("#lblCantReg").html("<b> "+cantReg.toString()+"</b>");
+                },0) /cantReg;
+            
+
+            $("#lblCantReg").html("<b> "+cantReg+"</b>");
+            $("#lblPromedioAltura").html("<b> "+promedioAltura+"</b>");
 
             Programa.animales.forEach(element => 
             {

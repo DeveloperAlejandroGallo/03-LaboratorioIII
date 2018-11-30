@@ -26,38 +26,52 @@
   <script src="./Gato.js"></script>
   <script src="./Pajaro.js"></script>
   <script src="./programa.js"></script>
-  <title>Practica Segundo Parcial</title>
+  <title>Practica 2do Parcial</title>
 </head>
 
 <body>
   <div class="container-fluid">
-    <div class="container py-2">
-        <div class="form-row  form-group">
-            <div class="col-sm-12 alert-info py-2">
-                <h1>Segundo Parcial</h1>
-            </div>
-        </div>
+    <div class="container">
+
       <!-- ENCABEZADO -->
-      <div class="container-fluid">
-        <div class="container-fluid form-group">
-          <input type="button" id="btnAlta" class="btn btn-primary" data-toggle="modal" data-target="#cargaAnimales"
-            value="Agregar Animal"></button>
-          <input type="button" id="btnGrilla" class="btn btn-success" data-toggle="modal" value="Ocultar Grilla"></button>
+      <!-- <div class="container-fluid"> -->
+      <div class="form-row  form-group">
+        <div class="col-sm-12 alert-info py-2">
+          <h1>Segundo Parcial</h1>
         </div>
-        <div class="form-group form-inline">
-          <label for="txtbuscar" title="Buscar"></label>
-          <input type="search" name="txtBuscar" id="txtBuscar" placeholder="Ingrese Nombre a Buscar...">
-          <input type="button" id="btnBuscar" value="Buscar">
-          <label>Cantidad de registros: </label><label id="lblCantReg" text=""></label></div>
       </div>
-      <div class="container-fluid form-check-inline form-group">
-        <b><label>Ocultar/Mostra Fila: </label></b>
-        <input type="checkbox" class="togglecol checkbox" data-target="column1" id="chkCol1" checked>Nombre
-        <input type="checkbox" class="togglecol checkbox" data-target="column2" id="chkCol2" checked>Animal
-        <input type="checkbox" class="togglecol checkbox" data-target="column3" id="chkCol3" checked>Raza
-        <input type="checkbox" class="togglecol checkbox" data-target="column4" id="chkCol4" checked>Altura
-        <input type="checkbox" class="togglecol checkbox" data-target="column5" id="chkCol5" checked>Nacimiento
+      <div class="form-row form-group">
+        <input type="button" id="btnAlta" class="btn btn-primary   col-xs-12 col-sm-12 col-md-2 col-lg-2" data-toggle="modal"
+          data-target="#cargaAnimales" value="Agregar Animal"></button>
+        <input type="button" id="btnGrilla" class="btn btn-success col-xs-12 col-sm-12 col-md-2 col-lg-2" data-toggle="modal"
+          value="Ocultar Grilla"></button>
       </div>
+      <div class="form-row form-group ">
+        <label class="col-xs-3  col-sm-3  col-md-1 col-lg-1 " for="txtbuscar">Buscar</label>
+        <input class="col-xs-9  col-sm-9  col-md-4 col-lg-4 " type="search" name="txtBuscar" id="txtBuscar" placeholder="Ingrese Nombre a Buscar...">
+        <input class="col-xs-12 col-sm-12 col-md-1 col-lg-1 " type="button" id="btnBuscar" value="Buscar">
+        <div   class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+          <label>Registros: </label> <label id="lblCantReg"></label>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+          <label>Promedio Altura: </label> <label id="lblPromedioAltura"></label>
+        </div>
+      </div>
+      <!-- </div> -->
+      <!-- <div class="container-fluid"></div> -->
+      <div class="form-row form-group">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+          <b><label>Ocultar/Mostra Filas: </label></b>
+        </div>
+        <div class="col-xs-12 col-sm--12 col-md-9 col-md-9 ">
+          <input type="checkbox" class="togglecol" data-target="column1" id="chkCol1" checked>Nombre
+          <input type="checkbox" class="togglecol" data-target="column2" id="chkCol2" checked>Animal
+          <input type="checkbox" class="togglecol" data-target="column3" id="chkCol3" checked>Raza
+          <input type="checkbox" class="togglecol" data-target="column4" id="chkCol4" checked>Altura
+          <input type="checkbox" class="togglecol" data-target="column5" id="chkCol5" checked>Nacimiento
+        </div>
+      </div>
+      <!-- </div> -->
       <!-- FIN ENCABEZADO -->
       <!-- GRILLA -->
       <div class="table-responsive">
@@ -74,8 +88,7 @@
           <tbody>
           </tbody>
         </table>
-      </div>
-      <!-- FIN GRILLA -->
+      </div> <!-- FIN GRILLA-->
       <!-- MODAL -->
       <div class="modal fade toggle" tabindex="-1" role="dialog" id="cargaAnimales">
         <div class="modal-dialog" role="document">
@@ -148,8 +161,7 @@
             </div>
           </div>
         </div>
-      </div>
-      <!-- FIN MODAL -->
+      </div> <!-- FIN MODAL -->
     </div>
   </div>
 </body>

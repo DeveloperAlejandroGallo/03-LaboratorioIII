@@ -30,59 +30,139 @@
 </head>
 
 <body>
-<div class="container-fluid">
-    <div class="container">
+    <div class="container-fluid">
+        <div class="container">
 
-    <!-- ENCABEZADO -->
-    <!-- <div class="container-fluid"> -->
-        <div class="form-row  form-group">
-            <div class="col-sm-12 alert-info py-2">
-                <h1>Segundo Parcial</h1>
+            <!-- ENCABEZADO -->
+            <!-- <div class="container-fluid"> -->
+            <div class="form-row  form-group">
+                <div class="col-sm-12 alert-info py-2">
+                    <h1>Segundo Parcial</h1>
+                </div>
             </div>
-        </div>
-        <div class="form-row form-group">
-            <input type="button" id="btnAlta" class="btn btn-primary   col-xs-12 col-sm-12 col-md-2 col-lg-2" data-toggle="modal"
-                data-target="#cargaAnimales" value="Agregar Animal"></button>
-            <input type="button" id="btnGrilla" class="btn btn-success col-xs-12 col-sm-12 col-md-2 col-lg-2" data-toggle="modal"
-                value="Ocultar Grilla"></button>
-        </div>
-        <div class="form-row form-group ">
-                <label class="col-xs-3 col-sm-3 col-md-2 col-lg-2 " for="txtbuscar">Buscar</label>
-                <input class="col-xs-9 col-sm-9 col-md-4 col-lg-4 " type="search" name="txtBuscar" id="txtBuscar" placeholder="Ingrese Nombre a Buscar...">
-                <input class="col-xs-12 col-sm-12 col-md-2 col-lg-2 "  type="button" id="btnBuscar" value="Buscar">
-                <label class="col-xs-10 col-sm-10 col-md-2 col-lg-2" >Registros: </label>
-                <label class="col-xs-2  col-sm-2  col-md-2 col-lg-2" id="lblCantReg" text=""></label>
-        </div>
-    <!-- </div> -->
-    <!-- <div class="container-fluid"></div> -->
-        <div class="form-row form-group">
-            <b><label>Ocultar/Mostra Filas: </label></b>
-            <input type="checkbox" class="togglecol" data-target="column1" id="chkCol1" checked>Nombre
-            <input type="checkbox" class="togglecol" data-target="column2" id="chkCol2" checked>Animal
-            <input type="checkbox" class="togglecol" data-target="column3" id="chkCol3" checked>Raza
-            <input type="checkbox" class="togglecol" data-target="column4" id="chkCol4" checked>Altura
-            <input type="checkbox" class="togglecol" data-target="column5" id="chkCol5" checked>Nacimiento
-        </div>
-    <!-- </div> -->
-    <!-- FIN ENCABEZADO -->
-    <!-- GRILLA -->
-    <div class="table-responsive">
-        <table id="tAnimales" class="table table-bordered table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th class="column1">Nombre</th>
-                    <th class="column2">Animal</th>
-                    <th class="column3">Raza</th>
-                    <th class="column4">Altura</th>
-                    <th class="column5">Nacimiento</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+            <div class="form-row form-group">
+                <input type="button" id="btnAlta" class="btn btn-primary   col-xs-12 col-sm-12 col-md-2 col-lg-2"
+                    data-toggle="modal" data-target="#cargaAnimales" value="Agregar Animal"></button>
+                <input type="button" id="btnGrilla" class="btn btn-success col-xs-12 col-sm-12 col-md-2 col-lg-2"
+                    data-toggle="modal" value="Ocultar Grilla"></button>
+            </div>
+            <div class="form-row form-group ">
+                <label class="col-xs-3  col-sm-3  col-md-2 col-lg-2 " for="txtbuscar">Buscar</label>
+                <input class="col-xs-9  col-sm-9  col-md-4 col-lg-4 " type="search" name="txtBuscar" id="txtBuscar" placeholder="Ingrese Nombre a Buscar...">
+                <input class="col-xs-12 col-sm-12 col-md-2 col-lg-2 " type="button" id="btnBuscar" value="Buscar">
+                <div   class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                    <label>Registros: </label> 
+                    <label id="lblCantReg"></label>
+                </div>
+            </div>
+            <!-- </div> -->
+            <!-- <div class="container-fluid"></div> -->
+            <div class="form-row form-group">
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                    <b><label>Ocultar/Mostra Filas: </label></b>
+                </div>
+                <div class="col-xs-12 col-sm--12 col-md-9 col-md-9">
+                    <input type="checkbox" class="togglecol" data-target="column1" id="chkCol1" checked>Nombre
+                    <input type="checkbox" class="togglecol" data-target="column2" id="chkCol2" checked>Animal
+                    <input type="checkbox" class="togglecol" data-target="column3" id="chkCol3" checked>Raza
+                    <input type="checkbox" class="togglecol" data-target="column4" id="chkCol4" checked>Altura
+                    <input type="checkbox" class="togglecol" data-target="column5" id="chkCol5" checked>Nacimiento
+                </div>
+            </div>
+        <!-- </div> -->
+        <!-- FIN ENCABEZADO -->
+        <!-- GRILLA -->
+        <div class="table-responsive">
+            <table id="tAnimales" class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="column1">Nombre</th>
+                        <th class="column2">Animal</th>
+                        <th class="column3">Raza</th>
+                        <th class="column4">Altura</th>
+                        <th class="column5">Nacimiento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div> <!-- FIN GRILLA-->
+        <!-- MODAL -->
+        <div class="modal fade toggle" tabindex="-1" role="dialog" id="cargaAnimales">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4><span class="glyphicon glyphicon-lock"></span>
+                            <h5 class="modal-title">Carga de Animales</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    </div>
+                    <div class="modal-body">
+                        <form role="form">
+                            <div class="form-group">
+                                <div>
+                                    <label for="txtNombre"><span class="glyphicon glyphicon-user"></span>Nombre</label>
+                                    <input id="id" type="text" hidden value="">
+                                </div>
+                                <div>
+                                    <input type="text" name="txtNombre" id="txtNombre" class="form-control" placeholder="Ingrese Nombre">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    <label for="txtRaza"><span class="glyphicon glyphicon-user"></span>Raza</label>
+                                </div>
+                                <div>
+                                    <input type="text" name="txtRaza" id="txtRaza" class="form-control" placeholder="Ingrese Raza">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    <label for="txtAltura"><span class="glyphicon glyphicon-user"></span>Altura</label>
+                                </div>
+                                <div>
+                                    <input type="text" name="txtAltura" id="txtAltura" class="form-control" placeholder="Ingrese Altura">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    <label for="txtFNacimiento"><span class="glyphicon glyphicon-calendar"></span>Nacimiento</label>
+                                </div>
+                                <div>
+                                    <input type="date" name="txtFNacimiento" id="txtFNacimiento" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    <label for="rbPerro"><span class="glyphicon glyphicon-circle-arrow-up"></span>Tipo</label>
+                                </div>
+                                <div class="form-control radio-inline">
+                                    <div class="container-fluid">
+                                        <input type="radio" name="rbTipoAnimal" id="rbPerro" value="Perro" checked
+                                            class="rounded-bottom">Perro
+                                        <input type="radio" name="rbTipoAnimal" id="rbGato" value="Gato">Gato
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <div id="divGuardar">
+                            <input type="button" id="btnGuardar" class="btn btn-outline-primary" value="Guardar"></button>
+                        </div>
+                        <div id="divModificar">
+                            <input type="button" id="btnModificar" class="btn btn-outline-warning" value="Modificar"></button>
+                        </div>
+                        <div id="divEliminar">
+                            <input type="button" id="btnEliminar" class="btn btn-outline-danger" value="Eliminar"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- FIN MODAL -->
     </div>
-</div>
-</div>
+    </div>
 </body>
 
 </html>

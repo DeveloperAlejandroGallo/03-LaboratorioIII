@@ -20,15 +20,14 @@ var ejemplo;
         });
         /** Doble clieck en la grilla, levanta el modal */
         $("#tAnimales").on("dblclick", "tr", function (e) {
-            var index = $(e.currentTarget).index(); //Obtener el indice de una fila
+            //let index: number = $(e.currentTarget).index(); //Obtener el indice de una fila
             var key = $(this).find("td:first").html(); //:nth-child(1) tambien sirve
             idActual = key;
             //let key2 = $(this).find("td:nth-child(2)").html(); //obtengo al valor del td especificado como param.
             var obj = JSON.parse(localStorage.getItem(key));
-            console.log("Formato Fecha: " + obj.fNacimiento);
             $("#txtNombre").val(obj.nombre);
             $("#txtRaza").val(obj.raza);
-            $("txtAltura").val(obj.altura);
+            $("#txtAltura").val(obj.altura);
             $("#txtFNacimiento").val(obj.fNacimiento);
             $("#rb" + obj.tipo).prop("checked", true);
             $('#cargaAnimales').modal('show');
@@ -69,6 +68,11 @@ var ejemplo;
         //     tabla.bootstrapTable('refresh');
         // });
         $("#btnAlta").click(function () {
+            $("#txtNombre").val("");
+            $("#txtRaza").val("");
+            $("#txtAltura").val("");
+            $("#txtFNacimiento").val("");
+            $("#rbPerro").attr('checked', 'checked');
             $('#divGuardar').show();
             $('#divEliminar').hide();
             $('#divModificar').hide();
@@ -86,7 +90,7 @@ var ejemplo;
                 var obj_1 = JSON.parse(localStorage.getItem(idActual));
                 obj_1.tipo = $('input:radio[name=rbTipoAnimal]:checked').val().toString();
                 obj_1.raza = $("#txtRaza").val().toString();
-                obj_1.altura = $("txtAltura").val();
+                obj_1.altura = $("#txtAltura").val();
                 obj_1.fNacimiento = $("#txtFNacimiento").val().toString();
                 localStorage.setItem(idActual, JSON.stringify(obj_1));
                 Programa.animales.forEach(function (animal) {
@@ -118,7 +122,7 @@ var ejemplo;
         });
         $('#txtBuscar').keypress(function (ev) {
             if (ev.which == 13)
-                $('btnBuscar').click();
+                $('#btnBuscar').click();
         });
     }); //Fin document ready
     var Programa = /** @class */ (function () {
@@ -155,14 +159,16 @@ var ejemplo;
             console.log("************POR INICIO DE PROGRAMA************");
             console.log(JSON.parse(JSON.stringify(Programa.animales)));
             var tbody = "";
-            var cantReg = Programa.animales.reduce(function (acum, valorActual) {
+            var cantReg = Programa.animales.length;
+            var promedioAltura = Programa.animales.reduce(function (acum, valorActual) {
                 var num = 0;
                 if ($.isNumeric(valorActual.altura)) {
                     num = valorActual.altura;
                 }
                 return parseInt(acum.toString(), 10) + parseInt(num.toString(), 10);
-            }, 0);
-            $("#lblCantReg").html("<b> " + cantReg.toString() + "</b>");
+            }, 0) / cantReg;
+            $("#lblCantReg").html("<b> " + cantReg + "</b>");
+            $("#lblPromedioAltura").html("<b> " + promedioAltura + "</b>");
             Programa.animales.forEach(function (element) {
                 tbody += '<tr>' +
                     '<td class="column1">' + element.nombre + '</td>' +
