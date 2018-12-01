@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Bootstrap - Orden de agregado -->
+  <!-- Hoja de estilos -->
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Jquery -->
+  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+  <!-- js de bootstrap -->
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- Bootstrap tables -->
+  <link rel="stylesheet" href="./node_modules/bootstrap-table/dist/bootstrap-table.min.css">
+  <script src="./node_modules/bootstrap-table/dist/bootstrap-table.min.js"></script>
+  <script src="./node_modules/bootstrap-table/dist/locale/bootstrap-table-es-AR.min.js"></script>
+  <!-- Mi js -->
+  <script src="./funciones.js"></script>
+  <!-- Mi hoja de estilo -->
+  <link rel="stylesheet" href="estilos.css">
+  <!-- Clases -->
+  <script src="./Persona.js"></script>
+  <script src="./Cliente.js"></script>
+  <script src="./programa.js"></script>
+  <title>SP Alejandro Gallo</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="container">
+
+      <!-- ENCABEZADO -->
+      <!-- <div class="container-fluid"> -->
+      <div class="form-row  form-group">
+        <div class="col-sm-12 alert-info py-2">
+          <h1>Segundo Parcial</h1>
+        </div>
+      </div>
+      <div class="form-row form-group">
+        <input type="button" id="btnAlta" class="btn btn-primary   col-xs-12 col-sm-12 col-md-2 col-lg-2" data-toggle="modal" data-target="#cargaPersonas" value="Agregar Persona"></button>
+        <input type="button" id="btnGrilla" class="btn btn-success col-xs-12 col-sm-12 col-md-2 col-lg-2" data-toggle="modal"value="Ocultar Grilla"></button>
+        <input type="button" id="btnLimpiarLocalStorage" class="btn btn-secondary col-xs-12 col-sm-12 col-md-2 col-lg-2" data-toggle="modal"value="Limpiar Local Storage"></button>
+      </div>
+      <div class="form-row form-group ">
+        <label class="col-xs-3  col-sm-3  col-md-1 col-lg-1 " for="txtbuscar">Buscar</label>
+        <input class="col-xs-9  col-sm-9  col-md-4 col-lg-4 " type="search" name="txtBuscar" id="txtBuscar" placeholder="Ingrese Nombre a Buscar...">
+        <input class="col-xs-12 col-sm-12 col-md-1 col-lg-1 " type="button" id="btnBuscar" value="Buscar">
+        <div   class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+          <label>Registros: </label> <label id="lblCantReg"></label>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+          <label>Promedio Edad: </label> <label id="lblPromedioEdad"></label>
+        </div>
+      </div>
+      <!-- </div> -->
+      <!-- <div class="container-fluid"></div> -->
+      <div class="form-row form-group">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+          <b><label>Ocultar/Mostra Filas: </label></b>
+        </div>
+        <div class="col-xs-12 col-sm--12 col-md-9 col-md-9 ">
+          <input type="checkbox" class="togglecol" data-target="column1" id="chkCol1" checked>Id
+          <input type="checkbox" class="togglecol" data-target="column2" id="chkCol2" checked>Nombre
+          <input type="checkbox" class="togglecol" data-target="column3" id="chkCol3" checked>Apellido
+          <input type="checkbox" class="togglecol" data-target="column4" id="chkCol4" checked>Edad
+          <input type="checkbox" class="togglecol" data-target="column5" id="chkCol5" checked>Sexo
+        </div>
+      </div>
+      <!-- </div> -->
+      <!-- FIN ENCABEZADO -->
+      <!-- GRILLA -->
+      <div class="table-responsive">
+        <table id="tPersonas" class="table table-bordered table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th class="column1">Id</th>
+              <th class="column2">Nombre</th>
+              <th class="column3">Apellido</th>
+              <th class="column4">Edad</th>
+              <th class="column5">Sexo</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div> <!-- FIN GRILLA-->
+      <!-- MODAL -->
+      <div class="modal fade toggle" tabindex="-1" role="dialog" id="cargaPersonas">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4><span class="glyphicon glyphicon-lock"></span>
+                <h5 class="modal-title">Carga de Personas</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+              <form role="form">
+                <div class="form-group">
+                  <div>
+                    <label for="txtId"><span class="glyphicon glyphicon-user"></span>Id</label>
+                    <input id="id" type="text" hidden value="">
+                  </div>
+                  <div>
+                    <input type="text" name="txtId" id="txtId" class="form-control" >
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div>
+                    <label for="txtNombre"><span class="glyphicon glyphicon-user"></span>Nombre</label>
+                  </div>
+                  <div>
+                    <input type="text" name="txtNombre" id="txtNombre" class="form-control" placeholder="Ingrese Nombre" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div>
+                    <label for="txtApellido"><span class="glyphicon glyphicon-calendar"></span>Apellido</label>
+                  </div>
+                  <div>
+                    <input type="text" name="txtApellido" id="txtApellido" class="form-control" placeholder="Ingrese Apellido"  required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div>
+                    <label for="txtEdad"><span class="glyphicon glyphicon-user"></span>Edad</label>
+                  </div>
+                  <div>
+                    <input type="text" name="txtEdad" id="txtEdad" class="form-control" placeholder="Ingrese Edad" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div>
+                    <label for="rbMasculino"><span class="glyphicon glyphicon-circle-arrow-up"></span>Tipo</label>
+                  </div>
+                  <div class="form-control radio-inline">
+                    <div class="container-fluid">
+                      <input type="radio" name="rbSexo" id="rbMasculino" value="M" checked class="rounded-bottom">M
+                      <input type="radio" name="rbSexo" id="rbFemenino" value="F">F
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <div id="divGuardar">
+                <input type="button" id="btnGuardar" class="btn btn-outline-primary" value="Guardar"></button>
+              </div>
+              <div id="divModificar">
+                <input type="button" id="btnModificar" class="btn btn-outline-warning" value="Modificar"></button>
+              </div>
+              <div id="divEliminar">
+                <input type="button" id="btnEliminar" class="btn btn-outline-danger" value="Eliminar"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- FIN MODAL -->
+    </div>
+  </div>
+</body>
+
+</html>
